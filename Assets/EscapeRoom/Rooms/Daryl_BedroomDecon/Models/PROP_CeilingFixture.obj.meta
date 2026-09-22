@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 93cb20eac1d5435a9b2cb11c1175a002
+guid: c881a298a03d40fabe0e26541e1d4d2a
 ModelImporter:
   externalObjects: {}
   serializedVersion: 26
   importSettingsMissing: 0
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   meshes:

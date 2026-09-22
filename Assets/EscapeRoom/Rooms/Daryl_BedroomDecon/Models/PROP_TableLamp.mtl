@@ -1,0 +1,9 @@
+# PROP_TableLamp materials
+newmtl Base
+Kd 0.500 0.500 0.500
+newmtl Stem
+Kd 0.500 0.500 0.500
+newmtl Shade
+Kd 0.500 0.500 0.500
+newmtl Bulb
+Kd 0.500 0.500 0.500
