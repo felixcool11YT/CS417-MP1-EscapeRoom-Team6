@@ -1,9 +1,7 @@
 # PROP_ChemCanister materials
-newmtl Body
-Kd 0.500 0.500 0.500
-newmtl Rim
-Kd 0.500 0.500 0.500
-newmtl Cap
-Kd 0.500 0.500 0.500
-newmtl Label
+newmtl MAT_FilterChemical
+Kd 0.200 0.700 0.300
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_CanisterLabel
 Kd 0.500 0.500 0.500

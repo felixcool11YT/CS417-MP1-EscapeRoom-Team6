@@ -1,15 +1,5 @@
 # PROP_Bed materials
-newmtl Frame
-Kd 0.400 0.250 0.150
-newmtl Leg
-Kd 0.400 0.250 0.150
-newmtl Headboard
-Kd 0.400 0.250 0.150
-newmtl Mattress
-Kd 0.800 0.750 0.700
-newmtl Pillow
-Kd 0.850 0.820 0.780
-newmtl Pillow2
-Kd 0.850 0.820 0.780
-newmtl Blanket
-Kd 0.600 0.200 0.200
+newmtl MAT_Wood
+Kd 0.450 0.300 0.180
+newmtl MAT_Fabric
+Kd 0.750 0.700 0.650
