@@ -56,7 +56,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 300012}, {fileID: 300014}, {fileID: 300016}, {fileID: 300018}, {fileID: 300020}, {fileID: 300022}, {fileID: 300024}, {fileID: 300026}, {fileID: 300028}, {fileID: 300030}, {fileID: 300032}, {fileID: 300034}]
+  m_Children: [{fileID: 300012}, {fileID: 300014}, {fileID: 300016}, {fileID: 300018}, {fileID: 300020}, {fileID: 300022}, {fileID: 300024}, {fileID: 300026}, {fileID: 300028}, {fileID: 300030}, {fileID: 300032}, {fileID: 300034}, {fileID: 300036}, {fileID: 300038}]
   m_Father: {fileID: 300002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 
@@ -86,7 +86,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 300036}, {fileID: 300038}, {fileID: 300040}, {fileID: 300042}, {fileID: 300044}, {fileID: 300046}, {fileID: 300048}, {fileID: 300050}, {fileID: 300052}, {fileID: 300054}, {fileID: 300056}, {fileID: 300058}, {fileID: 300060}, {fileID: 300062}, {fileID: 300064}, {fileID: 300066}, {fileID: 300068}, {fileID: 300070}, {fileID: 300072}, {fileID: 300074}]
+  m_Children: [{fileID: 300040}, {fileID: 300042}, {fileID: 300044}, {fileID: 300046}, {fileID: 300048}, {fileID: 300050}, {fileID: 300052}, {fileID: 300054}, {fileID: 300056}, {fileID: 300058}, {fileID: 300060}, {fileID: 300062}, {fileID: 300064}, {fileID: 300066}, {fileID: 300068}, {fileID: 300070}, {fileID: 300072}, {fileID: 300074}, {fileID: 300076}, {fileID: 300078}]
   m_Father: {fileID: 300002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 
@@ -393,14 +393,14 @@ Transform:
 --- !u!1 &300031
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200171, guid: 24c9530ce2644e5ca770cb206c22b37d, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200221, guid: b5d52c1fb92a43858a0303a81e5d7320, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300032}
   m_Layer: 0
-  m_Name: PosterSafety
+  m_Name: Keypad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,8 +413,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300031}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.88, y: 1.7, z: -0.9}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.25, y: 1.4, z: -2.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300004}
@@ -423,14 +423,14 @@ Transform:
 --- !u!1 &300033
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200141, guid: 88907f3128c74484bb09689595e607da, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200231, guid: 03931712cd0e43e5bbafb452157f41d2, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300034}
   m_Layer: 0
-  m_Name: CeilingFixture_Bedroom
+  m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: 3.0, z: -0.5}
+  m_LocalPosition: {x: -3.2, y: 0, z: -1.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300004}
@@ -453,14 +453,14 @@ Transform:
 --- !u!1 &300035
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200071, guid: ec1ada041411401e8cda38bd4af40901, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200171, guid: 24c9530ce2644e5ca770cb206c22b37d, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300036}
   m_Layer: 0
-  m_Name: DeconArch
+  m_Name: PosterSafety
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,23 +474,23 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300035}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.35, y: 0, z: 0}
+  m_LocalPosition: {x: -4.88, y: 1.7, z: -0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 300006}
+  m_Father: {fileID: 300004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 
 --- !u!1 &300037
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200151, guid: 5e8545a7eb894d0d8b4b1ab097a3b14b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200141, guid: 88907f3128c74484bb09689595e607da, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300038}
   m_Layer: 0
-  m_Name: PipeRun_Upper
+  m_Name: CeilingFixture_Bedroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,24 +503,24 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300037}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 2.3, z: -2.82}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 3.0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 300006}
+  m_Father: {fileID: 300004}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 
 --- !u!1 &300039
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200151, guid: 5e8545a7eb894d0d8b4b1ab097a3b14b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200071, guid: ec1ada041411401e8cda38bd4af40901, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300040}
   m_Layer: 0
-  m_Name: PipeRun_Lower
+  m_Name: DeconArch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,8 +533,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300039}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.5, y: 2.02, z: -2.82}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 1.35, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -543,14 +543,14 @@ Transform:
 --- !u!1 &300041
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200161, guid: db1723ce73ef4af896f49d31ade3344f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200151, guid: 5e8545a7eb894d0d8b4b1ab097a3b14b, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300042}
   m_Layer: 0
-  m_Name: Vent
+  m_Name: PipeRun_Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -563,8 +563,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300041}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 2.0, z: -2.84}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.5, y: 2.3, z: -2.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -573,14 +573,14 @@ Transform:
 --- !u!1 &300043
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200181, guid: 4207f495eb7442baa2adeb838e8794dd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200151, guid: 5e8545a7eb894d0d8b4b1ab097a3b14b, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300044}
   m_Layer: 0
-  m_Name: PosterWarning
+  m_Name: PipeRun_Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,8 +593,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300043}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.95, y: 1.7, z: -1.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 2.5, y: 2.02, z: -2.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -603,14 +603,14 @@ Transform:
 --- !u!1 &300045
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200201, guid: 59e00a4b848c4d008fb63c6d7c6b98e1, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200161, guid: db1723ce73ef4af896f49d31ade3344f, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300046}
   m_Layer: 0
-  m_Name: PosterChart
+  m_Name: Vent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,8 +623,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300045}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.16, y: 1.6, z: -1.6}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9, y: 2.0, z: -2.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -633,14 +633,14 @@ Transform:
 --- !u!1 &300047
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200211, guid: 7ae771df6656422689ecd7cabcbd93b4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200181, guid: 4207f495eb7442baa2adeb838e8794dd, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300048}
   m_Layer: 0
-  m_Name: Dispenser
+  m_Name: PosterWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,8 +653,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300047}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 1.5, z: -2.87}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.95, y: 1.7, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -663,14 +663,14 @@ Transform:
 --- !u!1 &300049
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200141, guid: 88907f3128c74484bb09689595e607da, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200201, guid: 59e00a4b848c4d008fb63c6d7c6b98e1, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300050}
   m_Layer: 0
-  m_Name: CeilingFixture_Decon
+  m_Name: PosterChart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,8 +683,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300049}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 3.0, z: -1.0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.16, y: 1.6, z: -1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -693,14 +693,14 @@ Transform:
 --- !u!1 &300051
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200191, guid: 2354f5c9f2ee4bafa3b4f03f35f1e792, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200211, guid: 7ae771df6656422689ecd7cabcbd93b4, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300052}
   m_Layer: 0
-  m_Name: HazardStrip_N_2.7
+  m_Name: Dispenser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: 0.006, z: 0.6}
+  m_LocalPosition: {x: 4.3, y: 1.5, z: -2.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -723,14 +723,14 @@ Transform:
 --- !u!1 &300053
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 200191, guid: 2354f5c9f2ee4bafa3b4f03f35f1e792, type: 3}
+  m_CorrespondingSourceObject: {fileID: 200141, guid: 88907f3128c74484bb09689595e607da, type: 3}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 300054}
   m_Layer: 0
-  m_Name: HazardStrip_S_2.7
+  m_Name: CeilingFixture_Decon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.7, y: 0.006, z: -2.6}
+  m_LocalPosition: {x: 2.6, y: 3.0, z: -1.0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -760,7 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300056}
   m_Layer: 0
-  m_Name: HazardStrip_N_3.7
+  m_Name: HazardStrip_N_2.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -774,7 +774,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7, y: 0.006, z: 0.6}
+  m_LocalPosition: {x: 2.7, y: 0.006, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -790,7 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300058}
   m_Layer: 0
-  m_Name: HazardStrip_S_3.7
+  m_Name: HazardStrip_S_2.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +804,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7, y: 0.006, z: -2.6}
+  m_LocalPosition: {x: 2.7, y: 0.006, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -820,7 +820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300060}
   m_Layer: 0
-  m_Name: HazardStrip_W_-2.1
+  m_Name: HazardStrip_N_3.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,8 +833,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300059}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.2, y: 0.006, z: -2.1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7, y: 0.006, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -850,7 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300062}
   m_Layer: 0
-  m_Name: HazardStrip_E_-2.1
+  m_Name: HazardStrip_S_3.7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -863,8 +863,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300061}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.2, y: 0.006, z: -2.1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7, y: 0.006, z: -2.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -880,7 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300064}
   m_Layer: 0
-  m_Name: HazardStrip_W_-1.1
+  m_Name: HazardStrip_W_-2.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,7 +894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300063}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.2, y: 0.006, z: -1.1}
+  m_LocalPosition: {x: 2.2, y: 0.006, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -910,7 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300066}
   m_Layer: 0
-  m_Name: HazardStrip_E_-1.1
+  m_Name: HazardStrip_E_-2.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300065}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.2, y: 0.006, z: -1.1}
+  m_LocalPosition: {x: 4.2, y: 0.006, z: -2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -940,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300068}
   m_Layer: 0
-  m_Name: HazardStrip_W_-0.1
+  m_Name: HazardStrip_W_-1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,7 +954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300067}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.2, y: 0.006, z: -0.1}
+  m_LocalPosition: {x: 2.2, y: 0.006, z: -1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -970,7 +970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300070}
   m_Layer: 0
-  m_Name: HazardStrip_E_-0.1
+  m_Name: HazardStrip_E_-1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -984,7 +984,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300069}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.2, y: 0.006, z: -0.1}
+  m_LocalPosition: {x: 4.2, y: 0.006, z: -1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -1000,7 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300072}
   m_Layer: 0
-  m_Name: HazardStrip_Door_0.95
+  m_Name: HazardStrip_W_-0.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,7 +1014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300071}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.006, z: 0.95}
+  m_LocalPosition: {x: 2.2, y: 0.006, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300006}
@@ -1030,7 +1030,7 @@ GameObject:
   m_Component:
   - component: {fileID: 300074}
   m_Layer: 0
-  m_Name: HazardStrip_Door_-0.95
+  m_Name: HazardStrip_E_-0.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,6 +1043,66 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300073}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.2, y: 0.006, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 300006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+--- !u!1 &300075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 200191, guid: 2354f5c9f2ee4bafa3b4f03f35f1e792, type: 3}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300076}
+  m_Layer: 0
+  m_Name: HazardStrip_Door_0.95
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300075}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.006, z: 0.95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 300006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+--- !u!1 &300077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 200191, guid: 2354f5c9f2ee4bafa3b4f03f35f1e792, type: 3}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300078}
+  m_Layer: 0
+  m_Name: HazardStrip_Door_-0.95
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300077}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.006, z: -0.95}
   m_LocalScale: {x: 1, y: 1, z: 1}

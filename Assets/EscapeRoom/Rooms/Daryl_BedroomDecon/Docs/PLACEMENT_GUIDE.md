@@ -38,7 +38,12 @@ Bedroom:
   placed in the room. It is your room's authorization item, dispensed
   at the Dispenser when the puzzle hits 3/3.
 - Locker (-0.85, 0, -2.7); LockerDoor (-1.13, 0, -2.71), hinge on the
-  left edge, closed. Rotate on Y to swing open for the reveal.
+  left edge, closed. Implement it LOCKED until the keypad code 2019 is
+  entered; rotate the door on Y to swing open for the reveal.
+- Keypad (-0.25, 1.4, -2.88) on the back wall next to the locker.
+- Crate (-3.2, 0, -1.85) under the bed. Place YOUR radiation filter
+  inside it (the crate is open-topped; the magenta glow leaking out is
+  the signifier).
 - PosterSafety (-4.88, 1.7, -0.9) on the left wall
 - CeilingFixture_Bedroom (-2.5, 3.0, -0.5)
 
@@ -113,21 +118,31 @@ Mechanically: the player grabs the newspaper off the desk, brings it close,
 sees the circle and the note, and checks under the bed. Keep the text as
 is unless the story changes; the texture regenerates in minutes.
 
-## Puzzle flow (your implementation)
+## Puzzle flow v2 (your implementation)
 
-1. Blue particulate filter in plain view on the desk -> blue socket. 1/3.
-   Teaches grab plus socket.
-2. Locker door closed, green chemical filter inside -> green socket. 2/3.
-   The reveal moment.
-3. Player stalls at 2/3. The newspaper gives the clue -> magenta radiation
-   filter under the bed -> magenta socket. 3/3.
-4. At 3/3: the Dispenser status light goes green and the Keycard spawns
+1. Blue particulate filter in plain view on the desk -> blue socket. This
+   teaches grab plus socket for free. The chart on the divider wall shows
+   it is stage 1.
+2. The locker is LOCKED. The keypad beside it on the back wall takes a
+   4-digit code. The code is 2019, from the newspaper article ("during the
+   2019 retrofit"). The player reads the paper for the code and absorbs
+   the "beneath crew bunks" clue without realizing it yet. Inside the
+   locker: the green chemical filter -> green socket as stage 2.
+3. The player stalls at 2/3. The circled paragraph plus R.'s note point at
+   the bed. Under it: a wooden crate with the magenta glow leaking out.
+   Your radiation filter goes inside the crate. Stage 3 -> magenta socket.
+4. The chart enforces order: sockets only accept filters in stage order
+   1-2-3. A wrong-order seat gets rejected (buzz, filter pops back out).
+   The chart says so on its face ("wrong order will be rejected").
+5. At 3/3: the Dispenser status light goes green and the Keycard spawns
    at the slot. The keycard is your room's ONE authorization item. It
-   travels (via the team's persistent inventory) to the FinalDoor, which
-   takes yours plus your teammates' two.
+   travels via the team's persistent inventory to the FinalDoor scene,
+   which you are building.
 
-Your room never touches the blast door. Puzzle.cs only needs to fire
-"room complete" and issue the keycard.
+Difficulty audit: every step has a fair clue (visible filter, year in
+plain text, crate under the only bed, order posted on the wall). Wrong
+guesses fail soft. No pixel hunting. Estimated 15-25 minutes for a
+first-time player.
 
 ## Room shell (matches the concrete/brick direction from the team chat)
 
