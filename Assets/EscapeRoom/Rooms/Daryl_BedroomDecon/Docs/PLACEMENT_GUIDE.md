@@ -1,16 +1,29 @@
 # Placement Guide: Bedroom Decon Theme Kit
 
-Drag the models from `Models/` into your scene, then assign the materials from
-`Materials/` per the table below. All models are in meters, Y-up, origin at
-floor center (except the locker door, see below).
+Drag the prefabs from `Prefabs/` into your scene and position them. Every
+prefab comes fully assembled: meshes with materials already wired to the
+correct parts, plus a MeshCollider (convex on the small grabbable items).
+You only handle placement and your XR/logic wiring. Nothing here touches
+your scripts, sockets, or scene.
+
+OBJ is just the raw 3D model file format underneath. A prefab is Unity's
+pre-assembled object: mesh plus materials plus components, ready to drop in.
+
+## The prefabs
+
+- `Bed`, `Nightstand`, `TableLamp`, `Desk`, `Chair` - bedroom furniture
+- `Locker` - body. `LockerDoor` is separate: its origin is at the hinge
+  edge, so place it at the hinge position on the locker body and rotate on Y
+  to swing open for the locker reveal.
+- `DeconArch` - decon zone archway, hazard stripes on the beam
+- `ChemCanister` - chemical filter, green signifier band plus hazard label
+- `ParticulateFilter` - blue filter face
+- `Keycard`, `Candle` (emissive flame), `Newspaper`
 
 ## Signifier color scheme (keep consistent with your sockets)
 
-- Particulate filter: blue. Model `PROP_ParticulateFilter`, material
-  `MAT_FilterParticulate` on the FilterFace part.
-- Chemical filter: green. Model `PROP_ChemCanister`, material
-  `MAT_FilterChemical` on the Body. Put `MAT_CanisterLabel` (hazard stripes)
-  on the Label part.
+- Particulate filter: blue (`MAT_FilterParticulate` on the filter face)
+- Chemical filter: green (`MAT_FilterChemical` on the canister body)
 - Radiation filter: magenta, emissive. Use a sphere with
   `MAT_FilterRadiation` so it glows in the dark decon zone.
 
@@ -19,26 +32,17 @@ floor center (except the locker door, see below).
 - Walls: `MAT_Wall_ConcreteDark`, one accent wall `MAT_Wall_BrickDark`
 - Ceiling: `MAT_Ceiling_Concrete`
 - Floor: `MAT_Floor_Tiles`
-- Decon zone trim and arch: `MAT_MetalPanels` on posts, `MAT_HazardStripes`
-  on the arch beam (`PROP_DeconArch`)
 - Signs: quads with `MAT_SignDecon` over the decon entrance and
   `MAT_SignWarning` near the filters
 
-## Furniture material assignments
+## Your part (placement + logic)
 
-- `PROP_Bed`: Frame/Headboard/Legs use `MAT_Wood`, Mattress uses
-  `MAT_Fabric`, Blanket uses `MAT_Fabric`
-- `PROP_Nightstand`: `MAT_Wood`, knobs `MAT_MetalPanels`
-- `PROP_TableLamp`: Base/Stem `MAT_MetalPanels`, Shade `MAT_Fabric`,
-  Bulb gets an emissive material or a real point light
-- `PROP_Desk`, `PROP_Chair`: `MAT_Wood`
-- `PROP_Locker` + `PROP_LockerDoor`: `MAT_LockerMetal`. The door model's
-  origin is at its hinge edge: place the door object at the hinge position on
-  the locker body and rotate it on Y to swing open for the locker reveal.
-- `PROP_Candle`: Wax/Dish use `MAT_CandleWax`, Flame uses `MAT_Flame`
-  (emissive). One instance only, it is a hero prop.
-- `PROP_Newspaper`: `MAT_Paper`
-- `PROP_Keycard`: `MAT_Keycard`
+1. Merge this PR into `feature/daryl-bedroom-decon`.
+2. Drag each prefab into the scene where it belongs.
+3. Add your XR components (XRGrabInteractable, sockets, interaction layers)
+   to the prefab instances as needed. Colliders are already on them.
+4. Verify in Play Mode on Quest. These prefabs were authored blind from the
+   URP template, so check materials and collider behavior before trusting.
 
 ## Performance notes
 
