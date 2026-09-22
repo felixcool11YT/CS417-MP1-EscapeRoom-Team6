@@ -1,9 +1,7 @@
 # PROP_Candle materials
-newmtl Wax
+newmtl MAT_CandleWax
 Kd 0.500 0.500 0.500
-newmtl Wick
-Kd 0.500 0.500 0.500
-newmtl Flame
-Kd 0.500 0.500 0.500
-newmtl Dish
-Kd 0.500 0.500 0.500
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_Flame
+Kd 1.000 0.600 0.200

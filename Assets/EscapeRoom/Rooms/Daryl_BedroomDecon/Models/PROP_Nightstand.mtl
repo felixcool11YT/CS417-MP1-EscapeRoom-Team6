@@ -1,13 +1,5 @@
 # PROP_Nightstand materials
-newmtl Body
-Kd 0.500 0.500 0.500
-newmtl Drawer
-Kd 0.500 0.500 0.500
-newmtl Drawer2
-Kd 0.500 0.500 0.500
-newmtl Knob
-Kd 0.500 0.500 0.500
-newmtl Knob2
-Kd 0.500 0.500 0.500
-newmtl Leg
-Kd 0.400 0.250 0.150
+newmtl MAT_Wood
+Kd 0.450 0.300 0.180
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380

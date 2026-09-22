@@ -1,11 +1,5 @@
 # PROP_DeconArch materials
-newmtl PostL
-Kd 0.500 0.500 0.500
-newmtl PostR
-Kd 0.500 0.500 0.500
-newmtl Beam
-Kd 0.500 0.500 0.500
-newmtl BaseL
-Kd 0.500 0.500 0.500
-newmtl BaseR
-Kd 0.500 0.500 0.500
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_HazardStripes
+Kd 0.900 0.700 0.100

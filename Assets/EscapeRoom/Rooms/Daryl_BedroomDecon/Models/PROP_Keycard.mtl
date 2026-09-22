@@ -1,5 +1,5 @@
 # PROP_Keycard materials
-newmtl Card
+newmtl MAT_Keycard
 Kd 0.500 0.500 0.500
-newmtl Stripe
-Kd 0.500 0.500 0.500
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380

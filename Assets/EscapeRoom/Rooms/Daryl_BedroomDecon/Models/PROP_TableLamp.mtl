@@ -1,9 +1,7 @@
 # PROP_TableLamp materials
-newmtl Base
-Kd 0.500 0.500 0.500
-newmtl Stem
-Kd 0.500 0.500 0.500
-newmtl Shade
-Kd 0.500 0.500 0.500
-newmtl Bulb
-Kd 0.500 0.500 0.500
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_Fabric
+Kd 0.750 0.700 0.650
+newmtl MAT_Flame
+Kd 1.000 0.600 0.200

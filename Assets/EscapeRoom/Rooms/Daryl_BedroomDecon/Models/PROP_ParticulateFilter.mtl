@@ -1,7 +1,5 @@
 # PROP_ParticulateFilter materials
-newmtl Housing
-Kd 0.500 0.500 0.500
-newmtl FilterFace
-Kd 0.500 0.500 0.500
-newmtl Handle
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_FilterParticulate
 Kd 0.500 0.500 0.500
