@@ -118,6 +118,24 @@ Mechanically: the player grabs the newspaper off the desk, brings it close,
 sees the circle and the note, and checks under the bed. Keep the text as
 is unless the story changes; the texture regenerates in minutes.
 
+## Placing your objects (filters, sockets, keycard)
+
+RoomDressing places every prop. These are yours to place because they
+carry your XR components and socket logic. Exact coordinates:
+
+- YOUR Filter_Particulate: on the desk at (-4.35, 0.85, 1.15). In plain
+  view, the gimme.
+- YOUR Filter_Chemical: inside the locker at (-0.85, 0.15, -2.7), on the
+  locker floor. Revealed when the door swings open.
+- YOUR Filter_Radiation: inside the crate at (-3.2, 0.11, -1.85). The
+  crate is open-topped; the magenta glow leaking out is the signifier.
+- Keycard spawn (use the PR's Keycard prefab): at the dispenser slot,
+  (4.3, 1.38, -2.745). Spawn it there at 3/3 when you swap the status
+  light to green.
+
+Your sockets stay exactly where they are. Nothing in the layout overlaps
+them.
+
 ## Puzzle flow v2 (your implementation)
 
 1. Blue particulate filter in plain view on the desk -> blue socket. This
