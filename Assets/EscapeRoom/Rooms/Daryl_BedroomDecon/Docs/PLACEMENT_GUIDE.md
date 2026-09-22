@@ -21,7 +21,9 @@ RoomDressing
     CeilingFixture_Decon, HazardStrip_N_2.7, ... (12 strips)
 ```
 
-If the nested prefabs ever fail to link on import, fall back to dragging
+RoomDressing is a flat prefab: every prop carries its own mesh and
+materials, so there are no prefab-to-prefab links to break on import.
+If anything still looks wrong, fall back to dragging
 the individual prefabs and use the position table below plus
 `Preview/layout_map.png` (top-down map of every prop).
 
