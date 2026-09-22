@@ -1,0 +1,9 @@
+# PROP_CeilingFixture materials
+newmtl Mount
+Kd 0.500 0.500 0.500
+newmtl Rod
+Kd 0.500 0.500 0.500
+newmtl Shade
+Kd 0.500 0.500 0.500
+newmtl Panel
+Kd 0.500 0.500 0.500

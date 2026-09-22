@@ -1,0 +1,11 @@
+# PROP_LockerDoor materials
+newmtl Door
+Kd 0.500 0.500 0.500
+newmtl Handle
+Kd 0.500 0.500 0.500
+newmtl Vent0
+Kd 0.500 0.500 0.500
+newmtl Vent1
+Kd 0.500 0.500 0.500
+newmtl Vent2
+Kd 0.500 0.500 0.500
