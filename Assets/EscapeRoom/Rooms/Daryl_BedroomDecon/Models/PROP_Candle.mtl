@@ -1,0 +1,9 @@
+# PROP_Candle materials
+newmtl Wax
+Kd 0.500 0.500 0.500
+newmtl Wick
+Kd 0.500 0.500 0.500
+newmtl Flame
+Kd 0.500 0.500 0.500
+newmtl Dish
+Kd 0.500 0.500 0.500

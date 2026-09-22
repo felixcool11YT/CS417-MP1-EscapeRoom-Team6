@@ -1,0 +1,5 @@
+# PROP_Vent materials
+newmtl Housing
+Kd 0.500 0.500 0.500
+newmtl Slat
+Kd 0.500 0.500 0.500
