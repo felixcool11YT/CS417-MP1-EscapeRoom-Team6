@@ -13,10 +13,11 @@ The hierarchy it creates:
 RoomDressing
   Bedroom
     Bed, Nightstand, TableLamp, Rug, Desk, Chair, Newspaper,
-    Keycard, Candle, Locker, LockerDoor, PosterSafety,
+    Candle, Locker, LockerDoor, PosterSafety,
     CeilingFixture_Bedroom
   DeconZone
     DeconArch, PipeRun_Upper, PipeRun_Lower, Vent, PosterWarning,
+    PosterChart, Dispenser,
     CeilingFixture_Decon, HazardStrip_N_2.7, ... (12 strips)
 ```
 
@@ -32,8 +33,10 @@ Bedroom:
 - Rug (-3.2, 0.002, -0.35)
 - Desk (-4.55, 0, 1.5) rotated 90 deg, against the left wall
 - Chair (-3.85, 0, 1.5) facing the desk
-- Newspaper (-4.55, 0.765, 1.35), Keycard (-4.35, 0.767, 1.7),
-  Candle (-4.75, 0.765, 1.75) - all on the desk
+- Newspaper (-4.55, 0.765, 1.35),
+  Candle (-4.75, 0.765, 1.75) - on the desk. Note: the keycard is NOT
+  placed in the room. It is your room's authorization item, dispensed
+  at the Dispenser when the puzzle hits 3/3.
 - Locker (-0.85, 0, -2.7); LockerDoor (-1.13, 0, -2.71), hinge on the
   left edge, closed. Rotate on Y to swing open for the reveal.
 - PosterSafety (-4.88, 1.7, -0.9) on the left wall
@@ -45,6 +48,13 @@ DeconZone:
 - PipeRun_Upper (2.5, 2.3, -2.82) and PipeRun_Lower (2.5, 2.02, -2.82)
   along the back wall; Vent (0.9, 2.0, -2.84)
 - PosterWarning (4.95, 1.7, -1.2) on the right wall
+- PosterChart (0.16, 1.6, -1.6) rotated 90 deg, on the divider wall facing
+  into the decon zone. A filter identification chart: color squares plus
+  names, so the player learns the matching before finding anything.
+- Dispenser (4.3, 1.5, -2.87) on the back wall near the sockets. This is
+  where the keycard is issued at 3/3. The status light is red until
+  calibration completes; swap `MAT_StatusRed` for `MAT_StatusGreen` and
+  spawn the `Keycard` prefab at the slot.
 - CeilingFixture_Decon (2.6, 3.0, -1.0)
 - 12 HazardStrip pieces: a rectangle around your socket/filter work area
   plus two marking the divider doorway threshold
@@ -65,6 +75,11 @@ layout leaves your socket positions alone.
 - `Rug`, `PipeRun`, `Vent`, `HazardStrip`
 - `PosterSafety`, `PosterWarning` - thin wall posters using the two sign
   materials
+- `PosterChart` - filter identification chart (blue/green/magenta squares
+  with names). Teaches the matching; hang it where the player will study it.
+- `Dispenser` - wall-mounted authorization terminal with a card slot and a
+  status light (red `MAT_StatusRed`, swap to green `MAT_StatusGreen` at
+  3/3). The `Keycard` prefab is the item it issues; spawn it at the slot.
 - `CeilingFixture` - ceiling mount with an emissive panel AND a real
   Point Light (intensity 20, range 10, warm color). Two are placed in
   RoomDressing. Tweak the intensity to taste; delete the Light component
@@ -77,12 +92,42 @@ layout leaves your socket positions alone.
 - Radiation filter: magenta, emissive. Use a sphere with
   `MAT_FilterRadiation` so it glows in the dark decon zone.
 
-## Newspaper front page
+## Newspaper front page (the clue)
 
-The newspaper now uses `MAT_PaperFront` on its top face: a front page with
-a placeholder headline ("CONTAMINATION SCARE SHUTS WING"). The body text is
-lorem-style placeholder. Give me your real headline and clue text and I
-will regenerate the texture in minutes.
+The newspaper's top face (`MAT_PaperFront`) is a full front page at 512px
+so it stays legible in the headset. It does three jobs:
+
+1. World context: "CONTAMINATION SCARE SHUTS WING" with a short article
+   about the lockdown.
+2. The rule of the room, taught diegetically: "Decon calibration requires
+   all three filter stages seated before the system will issue an
+   authorization credential."
+3. The clue: a red-pen circle around the paragraph about the 2019
+   retrofit ("crews cached spare filtration units beneath crew bunks"),
+   plus R.'s handwritten margin note apologizing for not waking you,
+   explaining he tore the housings apart hunting for good filters, and
+   pointing at the article. The note ends: "I'm going up top to see the
+   sky. Don't hate me. -- R."
+
+Mechanically: the player grabs the newspaper off the desk, brings it close,
+sees the circle and the note, and checks under the bed. Keep the text as
+is unless the story changes; the texture regenerates in minutes.
+
+## Puzzle flow (your implementation)
+
+1. Blue particulate filter in plain view on the desk -> blue socket. 1/3.
+   Teaches grab plus socket.
+2. Locker door closed, green chemical filter inside -> green socket. 2/3.
+   The reveal moment.
+3. Player stalls at 2/3. The newspaper gives the clue -> magenta radiation
+   filter under the bed -> magenta socket. 3/3.
+4. At 3/3: the Dispenser status light goes green and the Keycard spawns
+   at the slot. The keycard is your room's ONE authorization item. It
+   travels (via the team's persistent inventory) to the FinalDoor, which
+   takes yours plus your teammates' two.
+
+Your room never touches the blast door. Puzzle.cs only needs to fire
+"room complete" and issue the keycard.
 
 ## Room shell (matches the concrete/brick direction from the team chat)
 
