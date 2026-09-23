@@ -95,12 +95,12 @@ public class DecontaminationPuzzleController : MonoBehaviour
             return;
         }
 
-        // Create the keycard GameObject
+        // Create the keycard GameObject because prefabs in my UI were getting annoying
         GameObject keycard = new GameObject("Keycard");
         keycard.transform.position = KeycardSpawnPoint.position;
         keycard.transform.rotation = KeycardSpawnPoint.rotation;
 
-        // Add mesh
+        // add mesh
         var filter = keycard.AddComponent<MeshFilter>();
         filter.mesh = KeycardMesh;
 
@@ -110,12 +110,12 @@ public class DecontaminationPuzzleController : MonoBehaviour
             renderer.materials = KeycardMaterials;
         }
 
-        // Make it grabbable
+        // make grabbable
         var grab = keycard.AddComponent<XRGrabInteractable>();
 
-        // Add a collider so it can be grabbed
+        // Add a collider     
         var collider = keycard.AddComponent<BoxCollider>();
-        // Size the collider to the mesh bounds
+        // Size the collider to  mesh bounds
         collider.center = KeycardMesh.bounds.center;
         collider.size = KeycardMesh.bounds.size;
 
