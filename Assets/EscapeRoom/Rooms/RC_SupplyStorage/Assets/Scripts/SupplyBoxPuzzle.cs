@@ -79,7 +79,6 @@ public class SupplyBoxPuzzle : MonoBehaviour
         }
 
         // Prevent the player from grabbing the item again.
-        // If you're using an XR Grab Interactable, disable it here.
         var grabInteractable =
             item.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
 
