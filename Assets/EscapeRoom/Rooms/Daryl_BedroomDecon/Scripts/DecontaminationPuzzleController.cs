@@ -2,12 +2,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
-
-/// <summary>
-/// Controls the decon zone filter puzzle.
-/// Sockets must be filled in order: Particulate (1) -> Chemical (2) -> Radiation (3).
-/// On solve, the dispenser turns green and spawns the keycard.
-/// </summary>
+using System.Collections;
 public class DecontaminationPuzzleController : MonoBehaviour
 {
     private int currentStep = 0;
@@ -16,6 +11,16 @@ public class DecontaminationPuzzleController : MonoBehaviour
     [Header("Sockets (in order)")]
     [SerializeField]
     private XRSocketInteractor SocketParticulate;
+
+
+    [SerializeField]
+    private Material StatusBlinkMaterial;
+
+    [SerializeField]
+    private Material StatusDarkMaterial;
+
+    [SerializeField]
+    private float blinkInterval = 0.5f; 
 
     [SerializeField]
     private XRSocketInteractor SocketChemical;
@@ -40,6 +45,13 @@ public class DecontaminationPuzzleController : MonoBehaviour
     [SerializeField]
     private Transform KeycardSpawnPoint;
 
+    private void Start()
+    {
+
+        StartCoroutine(BlinkStatusLight());
+
+    }
+
     private void Solve(SelectEnterEventArgs args)
     {
         if (solved) return;
@@ -61,6 +73,16 @@ public class DecontaminationPuzzleController : MonoBehaviour
         else
         {
             currentStep = 0;
+        }
+    }
+    private IEnumerator BlinkStatusLight()
+    {
+        while(!solved)
+        {
+            DispenserStatusLight.material = StatusBlinkMaterial;
+            yield return new WaitForSeconds(blinkInterval);
+            DispenserStatusLight.material = StatusDarkMaterial;
+            yield return new WaitForSeconds(blinkInterval);
         }
     }
 
