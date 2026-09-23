@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 using System.IO;
 
 /// <summary>
 /// Applies the theme kit materials to all models in the Models folder.
 /// Run via Tools > Theme Kit > Apply Materials to Models.
-/// Matches material slots by name (e.g. "MAT_Wood") to .mat files in the Materials folder.
+/// Sets Material Search to ProjectWide so Unity auto-matches material slots by name
+/// (e.g. "MAT_Wood") to .mat files in the project.
 /// </summary>
 public static class ApplyThemeKitMaterials
 {
@@ -14,7 +14,6 @@ public static class ApplyThemeKitMaterials
     public static void ApplyMaterials()
     {
         string modelsDir = "Assets/EscapeRoom/Rooms/Daryl_BedroomDecon/Models";
-        string matsDir = "Assets/EscapeRoom/Rooms/Daryl_BedroomDecon/Materials";
 
         if (!Directory.Exists(modelsDir))
         {
@@ -30,38 +29,17 @@ public static class ApplyThemeKitMaterials
             var importer = AssetImporter.GetAtPath(objPath) as ModelImporter;
             if (importer == null) continue;
 
-            var map = importer.GetExternalObjectMap();
-            var newMap = new Dictionary<SourceAssetIdentifier, Object>(map);
-            bool changed = false;
-
-            foreach (var kvp in map)
+            // Set material search to find materials by name across the project
+            // This matches usemtl names (e.g. "MAT_Wood") to .mat files
+            if (importer.materialSearch != ModelImporterMaterialSearch.ProjectWide)
             {
-                if (kvp.Key.type != typeof(Material)) continue;
-
-                string matName = kvp.Key.name;
-                string matPath = (matsDir + "/" + matName + ".mat").Replace("\\", "/");
-                var mat = AssetDatabase.LoadAssetAtPath<Material>(matPath);
-
-                if (mat != null && kvp.Value != mat)
-                {
-                    newMap[kvp.Key] = mat;
-                    changed = true;
-                    Debug.Log($"[ThemeKit] {Path.GetFileName(objPath)}: assigned {matName}");
-                }
-                else if (mat == null)
-                {
-                    Debug.LogWarning($"[ThemeKit] {Path.GetFileName(objPath)}: material not found: {matName}");
-                }
-            }
-
-            if (changed)
-            {
-                importer.SetExternalObjectMap(newMap);
+                importer.materialSearch = ModelImporterMaterialSearch.ProjectWide;
                 importer.SaveAndReimport();
                 fixedCount++;
+                Debug.Log($"[ThemeKit] Enabled ProjectWide material search for {Path.GetFileName(objPath)}");
             }
         }
 
-        Debug.Log($"[ThemeKit] Done. Updated {fixedCount} of {objFiles.Length} models.");
+        Debug.Log($"[ThemeKit] Done. Updated {fixedCount} of {objFiles.Length} models. Materials should now auto-apply by name.");
     }
 }
