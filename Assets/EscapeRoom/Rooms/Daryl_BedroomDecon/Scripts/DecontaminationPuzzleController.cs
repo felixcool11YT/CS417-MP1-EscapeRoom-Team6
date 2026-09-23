@@ -3,10 +3,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using System.Collections;
+using UnityEngine.Events;
 public class DecontaminationPuzzleController : MonoBehaviour
 {
     private int currentStep = 0;
     private bool solved = false;
+    [SerializeField] private PuzzleProgressDisplay progressDisplay;
 
     [Header("Sockets (in order)")]
     [SerializeField]
@@ -45,37 +47,10 @@ public class DecontaminationPuzzleController : MonoBehaviour
     [SerializeField]
     private Transform KeycardSpawnPoint;
 
-    private void Start()
-    {
-
-        StartCoroutine(BlinkStatusLight());
-
-    }
-
-    private void Solve(SelectEnterEventArgs args)
-    {
-        if (solved) return;
-
-        if (currentStep == 0 && args.interactorObject is XRSocketInteractor socketP && socketP == SocketParticulate)
-        {
-            currentStep++;
-        }
-        else if (currentStep == 1 && args.interactorObject is XRSocketInteractor socketC && socketC == SocketChemical)
-        {
-            currentStep++;
-        }
-        else if (currentStep == 2 && args.interactorObject is XRSocketInteractor socketR && socketR == SocketRadiation)
-        {
-            currentStep++;
-            solved = true;
-            Solved();
-        }
-        else
-        {
-            currentStep = 0;
-        }
-    }
-    private IEnumerator BlinkStatusLight()
+    [Header("Room Completion")]
+    [SerializeField]
+    private UnityEvent OnPuzzleSolved;
+        private IEnumerator BlinkStatusLight()
     {
         while(!solved)
         {
@@ -86,9 +61,58 @@ public class DecontaminationPuzzleController : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        progressDisplay.ShowProgress(0);
+        StartCoroutine(BlinkStatusLight());
+
+    }
+    private void OnEnable()
+    {
+        SocketParticulate.selectEntered.AddListener(Solve);
+        SocketChemical.selectEntered.AddListener(Solve);
+        SocketRadiation.selectEntered.AddListener(Solve);
+    }
+
+    private void OnDisable()
+    {
+        SocketParticulate.selectEntered.RemoveListener(Solve);
+        SocketChemical.selectEntered.RemoveListener(Solve);
+        SocketRadiation.selectEntered.RemoveListener(Solve);
+    }
+
+
+    private void Solve(SelectEnterEventArgs args)
+    {
+        if (solved) return;
+
+        if (currentStep == 0 && args.interactorObject is XRSocketInteractor socketP && socketP == SocketParticulate)
+        {
+            currentStep++;
+            progressDisplay.ShowProgress(currentStep);
+        }
+        else if (currentStep == 1 && args.interactorObject is XRSocketInteractor socketC && socketC == SocketChemical)
+        {
+            currentStep++;
+            progressDisplay.ShowProgress(currentStep);
+        }
+        else if (currentStep == 2 && args.interactorObject is XRSocketInteractor socketR && socketR == SocketRadiation)
+        {
+            currentStep++;
+            solved = true;
+            Solved();
+        }
+        else
+        {
+            currentStep = 0;
+            progressDisplay.ShowWrongOrder();
+        }
+    }
+
     private void Solved()
     {
         Debug.Log("Puzzle solved! Dispensing keycard.");
+        progressDisplay.ShowComplete();
 
         // Turn the dispenser status light green
         if (DispenserStatusLight != null && StatusGreenMaterial != null)
@@ -102,6 +126,9 @@ public class DecontaminationPuzzleController : MonoBehaviour
 
         // Build and spawn the keycard
         SpawnKeycard();
+
+        // Lets the integrated game react without knowing how this puzzle works.
+        OnPuzzleSolved?.Invoke();
     }
 
     private void SpawnKeycard()
@@ -132,14 +159,17 @@ public class DecontaminationPuzzleController : MonoBehaviour
             renderer.materials = KeycardMaterials;
         }
 
-        // make grabbable
-        var grab = keycard.AddComponent<XRGrabInteractable>();
-
-        // Add a collider     
+        // Add physics before the grab component so XR can discover everything cleanly.
         var collider = keycard.AddComponent<BoxCollider>();
-        // Size the collider to  mesh bounds
         collider.center = KeycardMesh.bounds.center;
         collider.size = KeycardMesh.bounds.size;
+
+        var body = keycard.AddComponent<Rigidbody>();
+        body.mass = 0.2f;
+        body.interpolation = RigidbodyInterpolation.Interpolate;
+        body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
+        keycard.AddComponent<XRGrabInteractable>();
 
         Debug.Log("[Puzzle] Keycard spawned and ready for pickup.");
     }
