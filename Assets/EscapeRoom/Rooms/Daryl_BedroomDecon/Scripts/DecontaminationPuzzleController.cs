@@ -30,9 +30,12 @@ public class DecontaminationPuzzleController : MonoBehaviour
     [SerializeField]
     private Material StatusGreenMaterial;
 
-    [Header("Keycard")]
+    [Header("Keycard (built at runtime, no prefab needed)")]
     [SerializeField]
-    private GameObject KeycardPrefab;
+    private Mesh KeycardMesh;
+
+    [SerializeField]
+    private Material[] KeycardMaterials;
 
     [SerializeField]
     private Transform KeycardSpawnPoint;
@@ -75,15 +78,47 @@ public class DecontaminationPuzzleController : MonoBehaviour
             Debug.LogWarning("[Puzzle] Dispenser status light or green material not assigned.");
         }
 
-        // Spawn the keycard at the dispenser slot
-        if (KeycardPrefab != null && KeycardSpawnPoint != null)
+        // Build and spawn the keycard
+        SpawnKeycard();
+    }
+
+    private void SpawnKeycard()
+    {
+        if (KeycardMesh == null)
         {
-            Instantiate(KeycardPrefab, KeycardSpawnPoint.position, KeycardSpawnPoint.rotation);
-            Debug.Log("[Puzzle] Keycard spawned.");
+            Debug.LogWarning("[Puzzle] Keycard mesh not assigned. Drag PROP_Keycard model here.");
+            return;
         }
-        else
+        if (KeycardSpawnPoint == null)
         {
-            Debug.LogWarning("[Puzzle] Keycard prefab or spawn point not assigned.");
+            Debug.LogWarning("[Puzzle] Keycard spawn point not assigned.");
+            return;
         }
+
+        // Create the keycard GameObject
+        GameObject keycard = new GameObject("Keycard");
+        keycard.transform.position = KeycardSpawnPoint.position;
+        keycard.transform.rotation = KeycardSpawnPoint.rotation;
+
+        // Add mesh
+        var filter = keycard.AddComponent<MeshFilter>();
+        filter.mesh = KeycardMesh;
+
+        var renderer = keycard.AddComponent<MeshRenderer>();
+        if (KeycardMaterials != null && KeycardMaterials.Length > 0)
+        {
+            renderer.materials = KeycardMaterials;
+        }
+
+        // Make it grabbable
+        var grab = keycard.AddComponent<XRGrabInteractable>();
+
+        // Add a collider so it can be grabbed
+        var collider = keycard.AddComponent<BoxCollider>();
+        // Size the collider to the mesh bounds
+        collider.center = KeycardMesh.bounds.center;
+        collider.size = KeycardMesh.bounds.size;
+
+        Debug.Log("[Puzzle] Keycard spawned and ready for pickup.");
     }
 }
