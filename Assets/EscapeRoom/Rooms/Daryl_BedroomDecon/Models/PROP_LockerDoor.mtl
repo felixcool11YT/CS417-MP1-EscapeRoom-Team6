@@ -1,5 +1,0 @@
-# PROP_LockerDoor materials
-newmtl MAT_LockerMetal
-Kd 0.250 0.280 0.300
-newmtl MAT_MetalPanels
-Kd 0.350 0.350 0.380
