@@ -91,7 +91,6 @@ Packages/packages-lock.json linguist-generated
 *.ma                    lfs
 *.max                   lfs
 *.mb                    lfs
-*.obj                   lfs
 *.ply                   lfs
 *.skp                   lfs
 *.stl                   lfs
