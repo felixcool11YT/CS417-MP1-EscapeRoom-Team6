@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "DarylBedroomControls",
+    "maps": [
+        {
+            "name": "Bedroom",
+            "id": "0c082315-1f51-4b0c-8ee1-f85f5d40c43b",
+            "actions": [
+                {
+                    "name": "ReadNewsPaper",
+                    "type": "Button",
+                    "id": "c88ab7f4-6f58-4045-aa35-8841b531937c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b8e60c49-e71d-4f4e-8a66-bc3c5a5c57ca",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReadNewsPaper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "283d7681-57b3-4546-8e3f-18e1260868dc",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReadNewsPaper",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

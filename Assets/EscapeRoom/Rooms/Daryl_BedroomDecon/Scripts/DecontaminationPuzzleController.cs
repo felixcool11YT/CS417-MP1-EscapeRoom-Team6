@@ -8,6 +8,7 @@ public class DecontaminationPuzzleController : MonoBehaviour
 {
     private int currentStep = 0;
     private bool solved = false;
+    private Coroutine blinkRoutine;
     [SerializeField] private PuzzleProgressDisplay progressDisplay;
 
     [Header("Sockets (in order)")]
@@ -64,7 +65,7 @@ public class DecontaminationPuzzleController : MonoBehaviour
     void Start()
     {
         progressDisplay.ShowProgress(0);
-        StartCoroutine(BlinkStatusLight());
+        blinkRoutine = StartCoroutine(BlinkStatusLight());
 
     }
     private void OnEnable()
@@ -114,6 +115,12 @@ public class DecontaminationPuzzleController : MonoBehaviour
         Debug.Log("Puzzle solved! Dispensing keycard.");
         progressDisplay.ShowComplete();
 
+        if (blinkRoutine != null)
+        {
+            StopCoroutine(blinkRoutine);
+            blinkRoutine = null;
+        }
+
         // Turn the dispenser status light green
         if (DispenserStatusLight != null && StatusGreenMaterial != null)
         {
@@ -148,6 +155,7 @@ public class DecontaminationPuzzleController : MonoBehaviour
         GameObject keycard = new GameObject("Keycard");
         keycard.transform.position = KeycardSpawnPoint.position;
         keycard.transform.rotation = KeycardSpawnPoint.rotation;
+        keycard.transform.localScale = Vector3.one * 2f;
 
         // add mesh
         var filter = keycard.AddComponent<MeshFilter>();
@@ -170,6 +178,12 @@ public class DecontaminationPuzzleController : MonoBehaviour
         body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
         keycard.AddComponent<XRGrabInteractable>();
+
+        var rewardLight = keycard.AddComponent<Light>();
+        rewardLight.type = LightType.Point;
+        rewardLight.color = new Color(0.2f, 1f, 0.45f);
+        rewardLight.intensity = 1.5f;
+        rewardLight.range = 1.25f;
 
         Debug.Log("[Puzzle] Keycard spawned and ready for pickup.");
     }
