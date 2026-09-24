@@ -14,6 +14,11 @@ public class PowerRestoreController : MonoBehaviour
     [Header("Next Puzzle")]
     public GameObject nextPuzzleRoot;
 
+    [Header("Ambient Lighting")]
+    public Color powerOffAmbient = new Color(0.10f, 0.14f, 0.24f);
+    public Color powerOnAmbient = new Color(0.25f, 0.29f, 0.36f);
+    public float ambientFadeTime = 1.5f;
+
     private bool restored = false;
 
     public RadioDialController radioDial;
@@ -31,12 +36,19 @@ public class PowerRestoreController : MonoBehaviour
         generatorHum.Play();
 
     }
+
+    private void Start()
+    {
+        RenderSettings.ambientLight = powerOffAmbient;
+    }
     public void RestorePower()
     {
         if (restored)
             return;
 
         restored = true;
+
+        StartCoroutine(FadeAmbientLighting());
 
         foreach (GameObject obj in lightsToDisable)
         {
@@ -63,5 +75,26 @@ public class PowerRestoreController : MonoBehaviour
             nextPuzzleRoot.SetActive(true);
 
         Debug.Log("POWER RESTORED");
+    }
+
+    private IEnumerator FadeAmbientLighting()
+    {
+        Color startColor = RenderSettings.ambientLight;
+        float elapsed = 0f;
+
+        while (elapsed < ambientFadeTime)
+        {
+            elapsed += Time.deltaTime;
+
+            RenderSettings.ambientLight = Color.Lerp(
+                startColor,
+                powerOnAmbient,
+                elapsed / ambientFadeTime
+            );
+
+            yield return null;
+        }
+
+        RenderSettings.ambientLight = powerOnAmbient;
     }
 }
