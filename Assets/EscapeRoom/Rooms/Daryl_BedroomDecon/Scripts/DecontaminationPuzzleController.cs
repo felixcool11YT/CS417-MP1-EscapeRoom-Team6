@@ -177,7 +177,8 @@ public class DecontaminationPuzzleController : MonoBehaviour
         body.interpolation = RigidbodyInterpolation.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
-        keycard.AddComponent<XRGrabInteractable>();
+        var grabInteractable = keycard.AddComponent<XRGrabInteractable>();
+        grabInteractable.interactionLayers = InteractionLayerMask.GetMask("FinalKeycard");
 
         var rewardLight = keycard.AddComponent<Light>();
         rewardLight.type = LightType.Point;
