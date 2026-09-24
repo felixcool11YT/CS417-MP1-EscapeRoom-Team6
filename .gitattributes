@@ -75,6 +75,8 @@ Packages/packages-lock.json linguist-generated
 *.unitypackage          lfs
 
 # 3D models
+*.obj                   text eol=lf
+*.mtl                   text eol=lf
 *.3dm                   lfs
 *.3ds                   lfs
 *.blend                 lfs
@@ -85,13 +87,15 @@ Packages/packages-lock.json linguist-generated
 *.dxf                   lfs
 *.FBX                   lfs
 *.fbx                   lfs
+*.glb                   lfs
+*.bin                   lfs
+*.gltf                  unity-json
 *.jas                   lfs
 *.lws                   lfs
 *.lxo                   lfs
 *.ma                    lfs
 *.max                   lfs
 *.mb                    lfs
-*.obj                   lfs
 *.ply                   lfs
 *.skp                   lfs
 *.stl                   lfs

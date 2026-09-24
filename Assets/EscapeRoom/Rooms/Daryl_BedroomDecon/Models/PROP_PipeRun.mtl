@@ -1,0 +1,5 @@
+# PROP_PipeRun materials
+newmtl MAT_MetalPanels
+Kd 0.350 0.350 0.380
+newmtl MAT_LockerMetal
+Kd 0.250 0.280 0.300

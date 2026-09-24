@@ -1,0 +1,11 @@
+Model Information:
+* title:	PB178 Wix Air Filter Low
+* source:	https://sketchfab.com/3d-models/pb178-wix-air-filter-low-529082da8d0a40db9279455602baaf14
+* author:	Makovetkyi Volodymyr (https://sketchfab.com/pbr-scans)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PB178 Wix Air Filter Low" (https://sketchfab.com/3d-models/pb178-wix-air-filter-low-529082da8d0a40db9279455602baaf14) by Makovetkyi Volodymyr (https://sketchfab.com/pbr-scans) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

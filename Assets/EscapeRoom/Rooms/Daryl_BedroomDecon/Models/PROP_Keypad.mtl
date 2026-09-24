@@ -1,0 +1,5 @@
+# PROP_Keypad materials
+newmtl MAT_LockerMetal
+Kd 0.250 0.280 0.300
+newmtl MAT_Keypad
+Kd 0.200 0.200 0.220

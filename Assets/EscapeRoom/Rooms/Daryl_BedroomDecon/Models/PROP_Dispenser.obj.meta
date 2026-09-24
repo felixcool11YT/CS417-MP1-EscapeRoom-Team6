@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 960d17b531e844279a8c1d322e5cfe2b
+ModelImporter:
+  externalObjects: {}
+  serializedVersion: 26
+  importSettingsMissing: 0
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  meshes:
+    globalScale: 1
+    useFileUnits: 1
+    weldVertices: 1
+  isReadable: 0
