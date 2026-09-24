@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class PowerRestoreController : MonoBehaviour
 {
@@ -39,6 +40,10 @@ public class PowerRestoreController : MonoBehaviour
 
     private void Start()
     {
+        // The combined escape-room scene uses a skybox for ambient lighting.
+        // Flat mode lets the generator reliably control the building-wide
+        // ambient level without disabling local lights such as candles.
+        RenderSettings.ambientMode = AmbientMode.Flat;
         RenderSettings.ambientLight = powerOffAmbient;
     }
     public void RestorePower()
