@@ -18,6 +18,9 @@ public class FinalDoorController : MonoBehaviour
     [SerializeField]
     private ParticleSystem unlockParticles;
 
+    [SerializeField]
+    private GameObject exitArea;
+
     private bool isUnlocked = false;
     private int itemsCollected;
 
@@ -30,6 +33,9 @@ public class FinalDoorController : MonoBehaviour
 
         if (winPanel != null)
             winPanel.SetActive(false);
+
+        if (exitArea != null)
+            exitArea.SetActive(false);
     }
 
     public void RegisterItem()
@@ -64,6 +70,9 @@ public class FinalDoorController : MonoBehaviour
 
         if (unlockParticles != null)
             unlockParticles.Play();
+
+        if (exitArea != null)
+            exitArea.SetActive(true);
 
         if (winPanel != null)
             winPanel.SetActive(true);
