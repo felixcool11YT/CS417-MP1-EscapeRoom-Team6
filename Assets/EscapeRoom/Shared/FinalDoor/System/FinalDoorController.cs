@@ -52,6 +52,10 @@ public class FinalDoorController : MonoBehaviour
 
         isUnlocked = true;
 
+        GameFlowController gameFlow = FindFirstObjectByType<GameFlowController>();
+        if (gameFlow != null)
+            gameFlow.CompleteGame();
+
         if (doorAnimator != null)
             doorAnimator.SetTrigger("Open");
 
