@@ -34,7 +34,7 @@ public class RestartButton : MonoBehaviour
 
         // Move button inward along its local Y-axis.
         Vector3 pressedPosition =
-            originalPosition + Vector3.down * pressDistance;
+            originalPosition + transform.up * pressDistance;
 
         float elapsed = 0f;
 
