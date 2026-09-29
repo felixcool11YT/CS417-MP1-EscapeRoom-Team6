@@ -31,6 +31,16 @@ public class CollectibleItem : MonoBehaviour
 
     private void Collect(SelectEnterEventArgs args)
     {
+        CollectItem();
+    }
+
+    private void OnMouseDown()
+    {
+        CollectItem();
+    }
+
+    private void CollectItem()
+    {
         if (collected || gameFlow == null)
             return;
 
