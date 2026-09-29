@@ -41,11 +41,13 @@ public class FinalDoorSocket : MonoBehaviour
         doorController.RegisterItem();
         StartCoroutine(PlayAcceptedFeedback());
 
-        XRGrabInteractable insertedItem =
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>();
+        //Fixes Bug where the final keys would not stay in their sockets
 
-        if (insertedItem != null)
-            insertedItem.enabled = false;
+        //XRGrabInteractable insertedItem =
+        //    args.interactableObject.transform.GetComponent<XRGrabInteractable>();
+
+        //if (insertedItem != null)
+        //    insertedItem.enabled = false;
     }
 
     private IEnumerator PlayAcceptedFeedback()

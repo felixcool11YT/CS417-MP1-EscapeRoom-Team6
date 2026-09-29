@@ -27,8 +27,8 @@ public class WaterLeakPuzzle : MonoBehaviour
     public AudioSource leakAAudio;
     public AudioSource leakBAudio;
 
-    public float fullLeakVolume = 0.45f;
-    public float sealedLeakVolume = 0.12f;
+    public float fullLeakVolume = 0.20f;
+    public float sealedLeakVolume = 0.04f;
 
     public AudioSource sealFXAudio;
     public ParticleSystem glueFXA;
@@ -104,7 +104,7 @@ public class WaterLeakPuzzle : MonoBehaviour
         if (leakBAudio != null)
             leakBAudio.volume = sealedLeakVolume;
 
-        if (glueFXA != null)
+        if (glueFXB != null)
             glueFXA.Play();
 
         if (sealFXAudio != null)
