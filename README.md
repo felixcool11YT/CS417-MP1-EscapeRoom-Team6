@@ -1,6 +1,6 @@
-# CS 417 MP1b: Team 6 Escape Room
+# CS 417 MP1c: Bunker 6
 
-Shared Unity project for Daryl, Felix, and RC. The project is seeded from Daryl's working MP1a OpenXR/Quest project so everyone starts with the same Unity, URP, XR, and Android configuration.
+Shared Unity project by Daryl Okeke, Felix Romero (frome4), and Robert (RC, rc75). The project is seeded from Daryl's working MP1a OpenXR/Quest project so everyone starts with the same Unity, URP, XR, and Android configuration.
 
 ## Setup
 
@@ -17,7 +17,7 @@ After cloning:
 4. Confirm the Console has no compile errors.
 5. Create a feature branch before making room changes.
 
-The old MP1a assets remain as the working XR baseline and reference. All new MP1b work belongs under `Assets/EscapeRoom/`.
+The old MP1a assets remain as the working XR baseline and reference. All integrated work belongs under `Assets/EscapeRoom/`.
 
 ## Ownership Boundaries
 
@@ -32,7 +32,7 @@ Do not edit another person's prefab, room folder, or sandbox scene. Do not reorg
 - `Assets/EscapeRoom/Shared/FinalDoor/System/`
 - `Assets/EscapeRoom/Shared/UI/`
 - `Assets/EscapeRoom/Scenes/Start.unity`
-- `Assets/EscapeRoom/Scenes/EscapeRoom_Main.unity`
+- `Assets/EscapeRoom/Scenes/MP1B_EscapeRoom.unity`
 - Shared XR/Input changes, integration, final builds, and Quest testing
 
 ### RC
@@ -94,6 +94,15 @@ Do not commit `Library`, `Temp`, `Logs`, `UserSettings`, or generated builds. Re
 
 ## Game Contract
 
-Each independent room reveals one themed authorization item. The player can solve rooms in any order, carry all three items to the central blast door, and place them into three distinct matching sockets. The final door remains closed through `2/3` and opens only at `3/3`.
+Each independent room reveals one themed authorization item. The player can solve rooms in any order, carry all three items to the central blast door, and place them into three distinct matching sockets. At `3/3`, the clearances enable the departure station; the blast door remains closed. Players then pack the dedicated EXIT first-aid kit and radio, select the fixed filter controls in particulate–chemical–radiation order, and configure FILTERS and DOOR on with AUX off before pressing TEST. Completing all three stages opens the route to the stairwell and hatch.
 
 The full audited design, rubric mapping, and individual task lists were sent to the team separately in `MP1B_TEAM_PLAN.md`.
+
+
+## Play and build
+
+Open `Assets/EscapeRoom/Scenes/Start.unity`. WAKE UP loads the canonical `MP1B_EscapeRoom` scene; its filename is retained to preserve existing references. The desktop XR simulator is available in the editor and is excluded from Android builds.
+
+For Quest, install Android Build Support, use IL2CPP and ARM64, and build the enabled Start and MP1B scenes as an APK. Minimum Android API is 32. `MP1cBuildTools.WireAndTest` runs the departure integration check and then builds these scenes; `RoomIntegrationCheck.Run` first checks the menu transition, all three room chains, the mass/signifier constraints, the ending, and restart. Reports and APK output are written to `../the_room_info/MP1c_Quest_Test/` outside the source repository. `SceneAudit.Run` writes a read-only inventory of scene references, text, audio, and rigidbodies.
+
+Automated checks cover game state, reward gating, interaction wiring, and controlled physics. A Quest walkthrough is still required for reach, text readability, audio balance, locomotion, and the stairs/hatch. See [integration evidence and test checklist](MP1C_INTEGRATION.md) for the rubric mapping and recording plan. Third-party sources are listed in [asset attributions](ATTRIBUTIONS.md) and the room asset documentation.

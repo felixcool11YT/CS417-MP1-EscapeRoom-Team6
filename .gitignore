@@ -119,3 +119,7 @@ InitTestScene*.unity*
 # Unity scene recovery files are local editor backups, not project assets
 /[Aa]ssets/_Recovery/
 /[Aa]ssets/_Recovery.meta
+
+# Generated performance-test run metadata
+/Assets/Resources/PerformanceTestRunInfo.json*
+/Assets/Resources/PerformanceTestRunSettings.json*
