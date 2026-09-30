@@ -13,6 +13,9 @@ public class SupplyBoxPuzzle : MonoBehaviour
     [SerializeField] private Animator puzzleBoxAnimator;
     [SerializeField] private Animator rewardBoxAnimator;
 
+    [Header("Reward")]
+    [SerializeField] private GameObject brassAuthorizationSeal;
+
     [Header("Feedback")]
     [SerializeField] private AudioSource placementSound;
     [SerializeField] private ParticleSystem placementParticles;
@@ -116,16 +119,19 @@ public class SupplyBoxPuzzle : MonoBehaviour
 
         Debug.Log("Supply box puzzle solved!");
 
-        // Close the puzzle box.
         if (puzzleBoxAnimator != null)
         {
             puzzleBoxAnimator.SetTrigger("Close");
         }
 
-        // Open the reward box.
         if (rewardBoxAnimator != null)
         {
             rewardBoxAnimator.SetTrigger("Open");
+        }
+
+        if (brassAuthorizationSeal != null)
+        {
+            brassAuthorizationSeal.SetActive(true);
         }
     }
 }
