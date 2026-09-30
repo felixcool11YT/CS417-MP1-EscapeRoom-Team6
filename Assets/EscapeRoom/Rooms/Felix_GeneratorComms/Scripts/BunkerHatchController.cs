@@ -4,6 +4,16 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class BunkerHatchController : MonoBehaviour
 {
+    [Header("Departure interlock")]
+    [SerializeField] private DepartureStationController departureStation;
+    [SerializeField] private GameFlowController gameFlow;
+    [SerializeField] private TMPro.TMP_Text statusText;
+
+    public bool IsReleased => departureStation != null && departureStation.IsComplete
+        && gameFlow != null && !gameFlow.HasEnded;
+    public bool IsOpen => fullyOpened && hatchPivot != null
+        && Quaternion.Angle(hatchPivot.localRotation, Quaternion.Euler(openEuler)) < 3f;
+
     [Header("Interaction")]
     public XRSimpleInteractable interactable;
 
@@ -37,6 +47,15 @@ public class BunkerHatchController : MonoBehaviour
 
     private void Update()
     {
+        if (interactable != null)
+            interactable.enabled = IsReleased && !fullyOpened;
+        if (hatchPushGlow != null)
+            hatchPushGlow.SetActive(IsReleased && !fullyOpened);
+        if (statusText != null)
+            statusText.text = fullyOpened ? "HATCH OPEN / EXIT THE BUNKER"
+                : IsReleased ? $"HATCH RELEASED / PUSH {pushes} / {pushesRequired}"
+                : "HATCH LOCKED / COMPLETE AIRLOCK CHECKS";
+
         if (hatchPivot == null)
             return;
 
@@ -55,7 +74,7 @@ public class BunkerHatchController : MonoBehaviour
 
     private void OnPush(SelectEnterEventArgs args)
     {
-        if (fullyOpened)
+        if (!IsReleased || fullyOpened)
             return;
 
         pushes++;

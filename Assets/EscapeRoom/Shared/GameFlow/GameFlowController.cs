@@ -19,6 +19,7 @@ public class GameFlowController : MonoBehaviour
     private readonly List<string> collectedItems = new List<string>();
     private float timeRemaining;
     private bool gameEnded;
+    public bool HasEnded => gameEnded;
     private int lastDisplayedSecond = -1;
 
     private void Start()

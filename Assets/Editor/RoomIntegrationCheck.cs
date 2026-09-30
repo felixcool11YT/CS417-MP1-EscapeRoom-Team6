@@ -212,15 +212,24 @@ public static class RoomIntegrationCheck
                     manager.SelectEnter(socket,(IXRSelectInteractable)reward);
                 }
                 Check(Field(One<DepartureStationController>(),"currentStage").ToString()=="Packing","All three actual room rewards authorize departure packing");
-                Check(!(bool)Field(One<FinalDoorController>(),"isUnlocked"),"Room rewards alone do not open final door");
+                Check((bool)Field(One<FinalDoorController>(),"isUnlocked"),"Room rewards open inner authorization door");
+                Check(!One<GameFlowController>().HasEnded,"Authorization does not stop the countdown");
+                Check(!((GameObject)Field(One<FinalDoorController>(),"winPanel")).activeSelf,"Authorization does not show victory");
+                var lockedHatch = One<BunkerHatchController>();
+                Call(lockedHatch,"OnPush",new SelectEnterEventArgs());
+                Check(!lockedHatch.IsReleased && (int)Field(lockedHatch,"pushes")==0,"Hatch rejects pushes before preparation");
+                Call(One<WastelandEnding>(),"OnTriggerEnter",UnityEngine.Object.FindAnyObjectByType<CharacterController>());
+                Check(!(bool)Field(One<WastelandEnding>(),"triggered"),"Outside trigger rejects bypassing preparation");
                 var station=One<DepartureStationController>(); var sockets=(XRSocketInteractor[])Field(station,"supplySockets"); var items=(XRGrabInteractable[])Field(station,"supplyItems");
                 foreach(var item in items)Check(sockets.Count(s=>(s.interactionLayers.value&item.interactionLayers.value)!=0)==1,item.name+" matches one exit slot");
                 foreach(var item in packed)Check(sockets.All(s=>(s.interactionLayers.value&item.GetComponent<XRGrabInteractable>().interactionLayers.value)==0),item.name+" cannot substitute for EXIT supplies");
                 for(int i=0;i<items.Length;i++)manager.SelectEnter(sockets[i],(IXRSelectInteractable)items[i]);
                 station.SelectFilter(0);station.SelectFilter(1);station.SelectFilter(2);
                 var breakers=(BreakerSwitch[])Field(station,"breakers");breakers[0].SetState(true);breakers[1].SetState(true);breakers[2].SetState(false);station.CheckPower();
-                Check((bool)Field(One<FinalDoorController>(),"isUnlocked"),"Full room-to-station sequence opens the actual door");
-                Check((bool)Field(One<GameFlowController>(),"gameEnded"),"Completing departure stops the countdown");
+                Check(One<BunkerHatchController>().IsReleased,"Full room-to-station sequence releases hatch");
+                Check(!One<GameFlowController>().HasEnded,"Completing preparation keeps the countdown running");
+                Call(One<WastelandEnding>(),"OnTriggerEnter",UnityEngine.Object.FindAnyObjectByType<CharacterController>());
+                Check(!(bool)Field(One<WastelandEnding>(),"triggered"),"Outside trigger rejects a closed hatch");
                 step=4;nextTick=EditorApplication.timeSinceStartup+2;
             }
             else if(step==4)
@@ -231,19 +240,29 @@ public static class RoomIntegrationCheck
                 hatch.interactable.selectEntered.Invoke(new SelectEnterEventArgs());
                 Check((bool)Field(hatch,"fullyOpened"),"Final hatch push opens the hatch");
                 Call(One<WastelandEnding>(),"OnTriggerEnter",UnityEngine.Object.FindAnyObjectByType<CharacterController>());
-                step=5;nextTick=EditorApplication.timeSinceStartup+4;
+                Check(!(bool)Field(One<WastelandEnding>(),"triggered"),"Ending waits for hatch to physically open");
+                step=5;nextTick=EditorApplication.timeSinceStartup+3;
             }
             else if(step==5)
             {
+                Check(One<BunkerHatchController>().IsOpen,"Hatch reaches its open angle");
+                Call(One<WastelandEnding>(),"OnTriggerStay",UnityEngine.Object.FindAnyObjectByType<CharacterController>());
+                Check(One<GameFlowController>().HasEnded,"Reaching outside after preparation and hatch opening stops timer");
+                step=6;nextTick=EditorApplication.timeSinceStartup+4;
+            }
+            else if(step==6)
+            {
                 Check(One<WastelandEnding>().endingTextObject.activeSelf,"Exit trigger completes the ending presentation");
                 One<GameFlowController>().RestartGame();
-                step=6;nextTick=EditorApplication.timeSinceStartup+3;
+                step=7;nextTick=EditorApplication.timeSinceStartup+3;
             }
             else
             {
                 Check(Field(One<DepartureStationController>(),"currentStage").ToString()=="AwaitingAuthorization","Restart resets the station to authorization");
                 Check(!((GameObject)Field(One<SupplyBoxPuzzle>(),"rewardItem")).activeSelf,"Restart locks the storage reward again");
                 Check(!(bool)Field(One<GameFlowController>(),"gameEnded")&&Time.timeScale==1,"Restart resumes the countdown");
+                Check(!One<BunkerHatchController>().IsReleased && !One<BunkerHatchController>().IsOpen,"Restart relocks hatch");
+                Check(!(bool)Field(One<WastelandEnding>(),"triggered"),"Restart clears ending state");
                 Finish(true);
             }
         }

@@ -4,6 +4,11 @@ using System.Collections;
 
 public class WastelandEnding : MonoBehaviour
 {
+    [Header("Departure interlock")]
+    [SerializeField] private DepartureStationController departureStation;
+    [SerializeField] private BunkerHatchController hatch;
+    [SerializeField] private GameFlowController gameFlow;
+
     [Header("Ending UI")]
     public CanvasGroup whiteFlash;
     public GameObject endingTextObject;
@@ -46,15 +51,20 @@ public class WastelandEnding : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) => TryEscape(other);
+    private void OnTriggerStay(Collider other) => TryEscape(other);
+
+    private void TryEscape(Collider other)
     {
-        if (triggered)
+        if (triggered || departureStation == null || !departureStation.IsComplete
+            || hatch == null || !hatch.IsOpen || gameFlow == null || gameFlow.HasEnded)
             return;
 
         if (other.GetComponentInParent<CharacterController>() == null)
             return;
 
         triggered = true;
+        gameFlow.CompleteGame();
         StartCoroutine(PlayEnding());
     }
 

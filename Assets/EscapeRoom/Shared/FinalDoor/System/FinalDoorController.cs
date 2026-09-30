@@ -53,6 +53,7 @@ public class FinalDoorController : MonoBehaviour
         if (itemsCollected >= itemsRequired)
         {
             authorizationComplete = true;
+            UnlockDoor();
             if (departureStation != null)
                 departureStation.BeginPreparation();
             else
@@ -61,8 +62,9 @@ public class FinalDoorController : MonoBehaviour
     }
     public void CompleteDeparture()
     {
-        if (!authorizationComplete) return;
-        UnlockDoor();
+        if (!authorizationComplete || departureStation == null || !departureStation.IsComplete) return;
+        if (progressText != null)
+            progressText.text = "DEPARTURE READY\nHATCH RELEASED";
     }
 
     private void UnlockDoor()
@@ -72,9 +74,8 @@ public class FinalDoorController : MonoBehaviour
 
         isUnlocked = true;
 
-        GameFlowController gameFlow = FindFirstObjectByType<GameFlowController>();
-        if (gameFlow != null)
-            gameFlow.CompleteGame();
+        if (progressText != null)
+            progressText.text = "ACCESS GRANTED\nPREPARE IN AIRLOCK";
 
         if (doorAnimator != null)
             doorAnimator.SetTrigger("Open");
@@ -82,13 +83,8 @@ public class FinalDoorController : MonoBehaviour
         if (unlockSound != null)
             unlockSound.Play();
 
-        if (unlockParticles != null)
-            unlockParticles.Play();
-
         if (exitArea != null)
             exitArea.SetActive(true);
 
-        if (winPanel != null)
-            winPanel.SetActive(true);
     }
 }

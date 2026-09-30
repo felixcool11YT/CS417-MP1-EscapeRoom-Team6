@@ -16,7 +16,7 @@ public partial class DepartureStationController
     [SerializeField] private Renderer[] filterLamps;
     [SerializeField] private TMP_Text purgeText;
     [Header("Power")]
-    [SerializeField] private BreakerSwitch[] breakers; // FILTERS, DOOR, AUX
+    [SerializeField] private BreakerSwitch[] breakers; // FILTERS, HATCH, AUX
     [SerializeField] private XRSimpleInteractable testButton;
     [Header("Station feedback")]
     [SerializeField] private TMP_Text stationText;
@@ -142,7 +142,7 @@ public partial class DepartureStationController
             case Stage.Packing: stationText.text = "1 / PACK THE EXIT SUPPLIES"; break;
             case Stage.Purging: stationText.text = "2 / RECALL THE FILTER ORDER"; break;
             case Stage.Powering: stationText.text = "3 / SET BREAKERS, THEN PRESS TEST"; break;
-            case Stage.Complete: stationText.text = "DEPARTURE READY / EXIT OPEN"; break;
+            case Stage.Complete: stationText.text = "HATCH RELEASED / PROCEED UPSTAIRS"; break;
         }
         if (!complete && (currentStage != displayedStage || filterStep > displayedFilterStep))
             if (acceptedAudio != null) acceptedAudio.Play();

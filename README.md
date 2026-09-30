@@ -94,7 +94,7 @@ Do not commit `Library`, `Temp`, `Logs`, `UserSettings`, or generated builds. Re
 
 ## Game Contract
 
-Each independent room reveals one themed authorization item. The player can solve rooms in any order, carry all three items to the central blast door, and place them into three distinct matching sockets. At `3/3`, the clearances enable the departure station; the blast door remains closed. Players then pack the dedicated EXIT first-aid kit and radio, select the fixed filter controls in particulate–chemical–radiation order, and configure FILTERS and DOOR on with AUX off before pressing TEST. Completing all three stages opens the route to the stairwell and hatch.
+Each independent room reveals one themed authorization item. The player can solve rooms in any order, carry all three items to the central blast door, and place them into three distinct matching sockets. At `3/3`, the inner blast door opens into the preparation airlock, without ending the game. At the station beyond the door, players pack the dedicated EXIT first-aid kit and radio, press the secured filters' buttons in particulate–chemical–radiation order, and configure FILTERS and HATCH on with AUX off before pressing TEST. Completing all three stages releases the surface hatch. Players climb the stairs, push the hatch open, and reach the outside trigger to finish and stop the timer.
 
 The full audited design, rubric mapping, and individual task lists were sent to the team separately in `MP1B_TEAM_PLAN.md`.
 

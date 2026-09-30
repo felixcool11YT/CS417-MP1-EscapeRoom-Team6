@@ -8,17 +8,17 @@ This is an implementation and recording checklist, not a submitted self-evaluati
 
 ## Combined Lock Mechanic Challenge — target 2 points
 
-All three room rewards are required to authorize the station. They do not open the door. One gated sequence then reuses each contributor's mechanic:
+All three room rewards open the inner authorization door into a separate airlock. The departure station sits along the east wall before the stairs. The exterior hatch remains locked until one gated sequence reuses each contributor's mechanic:
 
 | Contributor | Learned mechanic | Final application |
 | --- | --- | --- |
 | Robert / RC | Pack the requested supply types into a designated container | Pack the dedicated EXIT first-aid kit and EXIT radio in their marked slots |
 | Daryl | Apply the ordered particulate, chemical, radiation filtration sequence | Select the fixed cartridges in that order; an incorrect input resets progress |
-| Felix | Configure electrical breakers from a circuit clue and test the configuration | FILTERS on, DOOR on, AUX off, then TEST |
+| Felix | Configure electrical breakers from a circuit clue and test the configuration | FILTERS on, HATCH on, AUX off, then TEST |
 
-Inactive stages cannot be operated early. The blast door opens only after all three stages. The note from R explains the purpose and distinguishes the clearances, exit supplies, and fixed filter controls. The final step retains the set-and-test pattern while reducing the number of breakers.
+Inactive stages cannot be operated early. All three stages release the exterior hatch, which still requires its push interaction. The ending requires departure completion and an open hatch; the timer continues until the player reaches the outside trigger. The note from R distinguishes inner-door access, airlock preparation, and actual escape. The final step retains the set-and-test pattern while reducing the number of breakers.
 
-Record: demonstrate 3/3 authorization with the door still closed, pack both items, reject one incorrect filter selection, complete the sequence, reject a wrong breaker configuration, then complete it and show the door opening. Identify all three contributors' mechanics in narration.
+Record: demonstrate 3/3 authorization opening the inner door without victory, enter the airlock, pack both items, reject one incorrect filter selection, complete the sequence, reject a wrong breaker configuration, then complete it and open the released hatch. Identify all three contributors' mechanics in narration.
 
 ## Relevant Feedback — target 2 points
 
@@ -38,11 +38,11 @@ Record: contrast an incorrect and correct input, show the changed text/light, an
 | Small generator power cell | POWER CELL authorization socket | Capsule shape and explicit socket label; separate from the large generator core |
 | Brass key | BRASS KEY authorization socket | Brass key shape and label; its own interaction layer |
 | Storage first aid, radio, pills, flare gun | Storage kit | Room instructions name the four types; supply count confirms acceptance |
-| EXIT first aid and EXIT radio | Departure kit's corresponding slots | Dedicated EXIT tags and shelf; each exit slot has its own interaction layer |
+| EXIT first aid and EXIT radio | Departure kit's corresponding slots | Dedicated EXIT tags, matching amber shelf/slot labels, and physical separation beyond the inner door; each exit slot has its own interaction layer |
 | Large generator core | Generator installation port | Core/port shape and GENERATOR CORE label; cabinet unlock precedes access |
 | Sealant | Leaking repair zones | Repair tool, water effects, visible patches |
-| Final fixed cartridges | Purge control buttons | Labelled FIXED CARTRIDGES / SELECT IN ORDER, not grabbable loose filters |
-| Final FILTERS / DOOR / AUX switches | Exit power circuit | Named circuit labels, ON/OFF marks, and TEST |
+| Final fixed cartridges | Purge control buttons | Visibly secured behind guard bars, with protruding labelled push buttons below; instruction reads SECURED FILTERS / USE BUTTONS BELOW |
+| Final FILTERS / HATCH / AUX switches | Exit power circuit | Named circuit labels, ON/OFF marks, and TEST |
 
 Record: show each authorization object beside its matching label, compare the storage supplies to the EXIT-tagged duplicates, and show that a wrong item is not accepted in an exit socket. Have a new player match the objects without verbal hints. Similar geometry still needs this visual usability check; layer masks alone are not proof of a clear signifier.
 
@@ -70,7 +70,7 @@ Record: show a light item and a heavier-looking item reacting to contact, then s
 
 ## Integrated Theme — target 2 points
 
-Bedroom decontamination, emergency storage, generator restoration, clearances, and departure preparation serve the same bunker scenario. Reused metal surfaces, practical repair props, warning colors, local electrical and water sounds, notes from R, and the final hatch/wasteland reinforce it. The exit station uses supplies and fixed filtration deliberately: room puzzles earn authority, while exit preparation makes departure possible.
+Bedroom decontamination, emergency storage, generator restoration, clearances, and departure preparation serve the same bunker scenario. Reused metal surfaces, practical repair props, warning colors, local electrical and water sounds, notes from R, and the final hatch/wasteland reinforce it. The inner door admits the player to a separate preparation airlock. Its dedicated supplies and secured filtration controls prepare the player for the surface; completing the station releases the exterior hatch. Inner-door access gives a short confirmation, while the escape presentation occurs outside.
 
 Record: begin with a brief room overview, connect the three room functions to the bunker, then end at the open hatch and wasteland. Explain why the final station exists in the story.
 
@@ -80,7 +80,7 @@ The five base axes total 10 points. The sidequest depends on the team's submitte
 
 ## Automated verification
 
-The September 30 integration run passed 50 room/menu/ending/restart/signifier/physics checks and 18 departure-station checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence.
+The September 30 airlock integration run passed 60 room/menu/ending/restart/signifier/physics checks and 18 departure-station checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
 
 In a separate physics scene, equal 0.5 kg projectiles at 4 m/s produced target speeds of about 3.49 m/s for a 0.10 kg body and 1.03 m/s for a 1.50 kg body. This checks the intended mass response under controlled contact, while the headset pass must still check hand-driven collisions in the rooms.
 
@@ -93,7 +93,7 @@ These checks invoke puzzle and interaction APIs in Play Mode. They do not simula
 - Check the bedroom keypad order, filter pickup/retry, audible feedback, and spawned keycard.
 - Pack all four storage objects. Confirm the brass key cannot be taken before completion and stays reachable afterward.
 - Follow the generator chain from leaks through valves, breakers, radio, terminal, core, and power-cell reward. Check that the core cannot be grabbed before the cabinet opens.
-- Attempt incorrect final-socket matches and finish the full departure sequence.
+- Attempt incorrect final-socket matches and confirm authorization opens only the inner door, and finish the full departure sequence. Check that the hatch refuses pushes before preparation is complete.
 - Walk the stairs, operate the hatch, and reach the ending without passing through geometry or becoming stuck.
 - Check timer, optional collectibles, restart, and a loss/retry. Check floor-level objects can be retrieved seated or using the distance grab.
 

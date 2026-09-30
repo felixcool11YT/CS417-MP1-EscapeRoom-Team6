@@ -12,6 +12,7 @@ private enum Stage
 }
 
 private Stage currentStage = Stage.AwaitingAuthorization;
+public bool IsComplete => currentStage == Stage.Complete;
 public void BeginPreparation()
 {
     if(currentStage != Stage.AwaitingAuthorization)
