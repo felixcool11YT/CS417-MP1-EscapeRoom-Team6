@@ -51,6 +51,9 @@ public class GeneratorCoreSocket : MonoBehaviour
         XRGrabInteractable grab =
             core.GetComponent<XRGrabInteractable>();
 
+        if (grab != null)
+            grab.enabled = false;
+
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
@@ -59,13 +62,15 @@ public class GeneratorCoreSocket : MonoBehaviour
             rb.isKinematic = true;
         }
 
-        if (grab != null)
-            grab.enabled = false;
-
         if (snapPoint != null)
         {
             core.transform.position = snapPoint.position;
             core.transform.rotation = snapPoint.rotation;
+            if (rb != null)
+            {
+                rb.position = snapPoint.position;
+                rb.rotation = snapPoint.rotation;
+            }
         }
 
         if (insertAudio != null)

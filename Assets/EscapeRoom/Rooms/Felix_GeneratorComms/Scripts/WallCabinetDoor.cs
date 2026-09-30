@@ -13,6 +13,14 @@ public class WallCabinetDoor : MonoBehaviour
     [Header("Audio")]
     public AudioSource unlockAudio;
 
+    [Header("Locked Contents")]
+    public UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable lockedCore;
+
+    private void Awake()
+    {
+        if (lockedCore != null) lockedCore.enabled = false;
+    }
+
     private bool isOpen = false;
     private Quaternion closedRotation;
     private Quaternion openRotation;
@@ -46,6 +54,7 @@ public class WallCabinetDoor : MonoBehaviour
             return;
 
         isOpen = true;
+        if (lockedCore != null) lockedCore.enabled = true;
 
         if (unlockAudio != null)
             unlockAudio.Play();

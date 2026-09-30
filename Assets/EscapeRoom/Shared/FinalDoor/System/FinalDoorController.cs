@@ -21,6 +21,8 @@ public class FinalDoorController : MonoBehaviour
     [SerializeField]
     private GameObject exitArea;
 
+    [SerializeField] private DepartureStationController departureStation;
+    private bool authorizationComplete;
     private bool isUnlocked = false;
     private int itemsCollected;
 
@@ -40,7 +42,7 @@ public class FinalDoorController : MonoBehaviour
 
     public void RegisterItem()
     {
-        if (isUnlocked)
+        if (isUnlocked || authorizationComplete)
             return;
 
         itemsCollected++;
@@ -49,8 +51,20 @@ public class FinalDoorController : MonoBehaviour
             progressText.text = $"AUTHORIZATION: {itemsCollected}/{itemsRequired}";
 
         if (itemsCollected >= itemsRequired)
-            UnlockDoor();
+        {
+            authorizationComplete = true;
+            if (departureStation != null)
+                departureStation.BeginPreparation();
+            else
+                Debug.LogError("Final door has no departure station assigned.");
+        }
     }
+    public void CompleteDeparture()
+    {
+        if (!authorizationComplete) return;
+        UnlockDoor();
+    }
+
     private void UnlockDoor()
     {
         if (isUnlocked)

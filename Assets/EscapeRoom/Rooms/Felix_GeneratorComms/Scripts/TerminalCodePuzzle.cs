@@ -22,6 +22,7 @@ public class TerminalCodePuzzle : MonoBehaviour
 
     private string currentInput = "";
     private bool solved = false;
+    private Coroutine wrongFeedback;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class TerminalCodePuzzle : MonoBehaviour
         if (currentInput.Length >= maxLength)
             return;
 
+        CancelWrongFeedback();
         currentInput += character;
 
         if (keyAudio != null)
@@ -49,6 +51,7 @@ public class TerminalCodePuzzle : MonoBehaviour
         if (solved)
             return;
 
+        CancelWrongFeedback();
         currentInput = "";
         UpdateDisplay();
     }
@@ -58,6 +61,7 @@ public class TerminalCodePuzzle : MonoBehaviour
         if (solved)
             return;
 
+        CancelWrongFeedback();
         if (currentInput == targetCode)
         {
             solved = true;
@@ -77,8 +81,15 @@ public class TerminalCodePuzzle : MonoBehaviour
             if (wrongAudio != null)
                 wrongAudio.Play();
 
-            StartCoroutine(WrongCodeFeedback());
+            wrongFeedback = StartCoroutine(WrongCodeFeedback());
         }
+    }
+
+    private void CancelWrongFeedback()
+    {
+        if (wrongFeedback == null) return;
+        StopCoroutine(wrongFeedback);
+        wrongFeedback = null;
     }
 
     private IEnumerator WrongCodeFeedback()
@@ -88,6 +99,7 @@ public class TerminalCodePuzzle : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
+        wrongFeedback = null;
         currentInput = "";
         UpdateDisplay();
     }
