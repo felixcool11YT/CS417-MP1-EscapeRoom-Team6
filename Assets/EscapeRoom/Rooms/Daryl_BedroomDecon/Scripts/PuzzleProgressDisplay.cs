@@ -13,9 +13,13 @@ public class PuzzleProgressDisplay : MonoBehaviour
     [SerializeField]
     private TMP_Text progressText;
 
+    [SerializeField] private AudioSource placementFeedbackAudio;
+
     public void ShowProgress(int completedSteps)
     {
         progressText.text = "Steps completed: " + completedSteps.ToString() + " of 3";
+        if (completedSteps > 0 && placementFeedbackAudio != null)
+            placementFeedbackAudio.Play();
     }
 
     public void ShowWrongOrder()

@@ -24,7 +24,7 @@ Record: demonstrate 3/3 authorization opening the inner door without victory, en
 
 The design intent is focused attention. At the departure station, only the current stage is enabled; its amber indicator becomes green when complete. Status text explains the next action, filter lamps retain sequence progress, and brief spatial sounds distinguish accepted and rejected inputs. Hover highlighting identifies selectable controls. Feedback is attached to the action rather than a continuous global alarm.
 
-Room feedback includes the supply count and reward-box opening, filter progress and keycard dispenser light, generator valve indicators and reduced leaks, breaker sounds, terminal acceptance/rejection, and the powered generator. Short confirmation sounds remain local. The quiet ambient drone supports the bunker mood without being the primary instruction channel.
+Room feedback includes the supply count and reward-box opening, filter progress and keycard dispenser light, generator valve indicators and reduced leaks, breaker sounds, terminal acceptance/rejection, and the powered generator. The first two correct bedroom filter placements play a short local confirmation; the third retains the puzzle-completion sound. Initialization remains silent. The quiet ambient drone supports the bunker mood without being the primary instruction channel.
 
 Record: contrast an incorrect and correct input, show the changed text/light, and explain which object should receive attention next. Confirm the cues are audible without drowning out clues on the headset.
 
@@ -81,6 +81,8 @@ Record: begin with a brief room overview, connect the three room functions to th
 The five base axes total 10 points. The sidequest depends on the team's submitted evaluation being within two points of the grader, so it cannot be verified in advance. Assign final claims after reviewing the actual recording and noting any remaining usability weaknesses.
 
 ## Automated verification
+
+The final polish pass adds 25 checks for the shared newspaper/departure-note reader, actual read-input events, ray selection, camera movement, clue text fit, filter audio, and the generator reward compartment remaining open for pickup. The departure note now uses the newspaper's camera canvas and existing input action: left-controller X on the headset, or V on a desktop keyboard. Its enlarged view follows the camera and closes with the same button. The fixed world reading panel has been removed. A runtime render confirms that the full handwritten clue fits on its worn-paper background.
 
 The September 30 interaction and clue revision passed 116 room/menu/ending/restart/signifier/physics checks, 18 departure-station checks, and 39 grab-safety checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The checks also exercise each visible keypad digit and the Clear/Enter buttons, verify label-to-collider alignment, drop the brass key at speed with recovery disabled, test its below-floor return separately, and verify the secured reward poses and horizontal power-cell axis. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
 
