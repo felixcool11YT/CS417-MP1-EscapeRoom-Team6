@@ -16,7 +16,7 @@ All three room rewards open the inner authorization door into a separate airlock
 | Daryl | Apply the ordered particulate, chemical, radiation filtration sequence | Select the fixed cartridges in that order; an incorrect input resets progress |
 | Felix | Configure electrical breakers from a circuit clue and test the configuration | FILTERS on, HATCH on, AUX off, then TEST |
 
-Inactive stages cannot be operated early. All three stages release the exterior hatch, which still requires its push interaction. The ending requires departure completion and an open hatch; the timer continues until the player reaches the outside trigger. The note from R distinguishes inner-door access, airlock preparation, and actual escape. The final step retains the set-and-test pattern while reducing the number of breakers.
+Inactive stages cannot be operated early. All three stages release the exterior hatch, which still requires its push interaction. The ending requires departure completion and an open hatch; the timer continues until the player reaches the outside trigger. The note from R distinguishes inner-door access, airlock preparation, and actual escape. The final step retains the set-and-test pattern while reducing the number of breakers. R's handwritten note describes the systems that still need power and the damaged auxiliary line, leaving the player to infer the switch states.
 
 Record: demonstrate 3/3 authorization opening the inner door without victory, enter the airlock, pack both items, reject one incorrect filter selection, complete the sequence, reject a wrong breaker configuration, then complete it and open the released hatch. Identify all three contributors' mechanics in narration.
 
@@ -37,12 +37,14 @@ Record: contrast an incorrect and correct input, show the changed text/light, an
 | Keycard | KEYCARD authorization socket | Flat card shape and labelled socket; FinalKeycard layer |
 | Small generator power cell | POWER CELL authorization socket | Capsule shape and explicit socket label; separate from the large generator core |
 | Brass key | BRASS KEY authorization socket | Brass key shape and label; its own interaction layer |
-| Storage first aid, radio, pills, flare gun | Storage kit | Room instructions name the four types; supply count confirms acceptance |
+| Storage first aid, radio, pills, flare gun | Storage kit | A handwritten clue describes four survival needs; matching slot labels and the supply count confirm acceptance |
 | EXIT first aid and EXIT radio | Departure kit's corresponding slots | Dedicated EXIT tags, matching amber shelf/slot labels, and physical separation beyond the inner door; each exit slot has its own interaction layer |
 | Large generator core | Generator installation port | Core/port shape and GENERATOR CORE label; cabinet unlock precedes access |
 | Sealant | Leaking repair zones | Repair tool, water effects, visible patches |
 | Final fixed cartridges | Purge control buttons | Visibly secured behind guard bars, with protruding labelled push buttons below; instruction reads SECURED FILTERS / USE BUTTONS BELOW |
 | Final FILTERS / HATCH / AUX switches | Exit power circuit | Named circuit labels, ON/OFF marks, and TEST |
+
+The keypad's visible labels are bound to their button values and positioned over the matching colliders. The authorization panel has a catch shelf; the brass key uses continuous collision detection and returns to that shelf if it falls below the floor. Accepted clearances stay secured. The small power cell seats horizontally through its ring.
 
 Record: show each authorization object beside its matching label, compare the storage supplies to the EXIT-tagged duplicates, and show that a wrong item is not accepted in an exit socket. Have a new player match the objects without verbal hints. Similar geometry still needs this visual usability check; layer masks alone are not proof of a clear signifier.
 
@@ -70,7 +72,7 @@ Record: show a light item and a heavier-looking item reacting to contact, then s
 
 ## Integrated Theme — target 2 points
 
-Bedroom decontamination, emergency storage, generator restoration, clearances, and departure preparation serve the same bunker scenario. Reused metal surfaces, practical repair props, warning colors, local electrical and water sounds, notes from R, and the final hatch/wasteland reinforce it. The inner door admits the player to a separate preparation airlock. Its dedicated supplies and secured filtration controls prepare the player for the surface; completing the station releases the exterior hatch. Inner-door access gives a short confirmation, while the escape presentation occurs outside.
+Bedroom decontamination, emergency storage, generator restoration, clearances, and departure preparation serve the same bunker scenario. Reused metal surfaces, practical repair props, warning colors, local electrical and water sounds, notes from R, and the final hatch/wasteland reinforce it. The inner door admits the player to a separate preparation airlock. Its dedicated supplies and secured filtration controls prepare the player for the surface; completing the station releases the exterior hatch. Inner-door access gives a short confirmation, while the escape presentation occurs outside. Storage and maintenance clues use worn paper and handwritten text. The circuit clue beside the generator fuse cabinet describes two surviving paths through the grid; the table note directs players to that wall clue. The departure note uses the same paper and handwriting in its physical and enlarged reading views.
 
 Record: begin with a brief room overview, connect the three room functions to the bunker, then end at the open hatch and wasteland. Explain why the final station exists in the story.
 
@@ -80,7 +82,7 @@ The five base axes total 10 points. The sidequest depends on the team's submitte
 
 ## Automated verification
 
-The September 30 airlock integration run passed 60 room/menu/ending/restart/signifier/physics checks and 18 departure-station checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
+The September 30 interaction and clue revision passed 114 room/menu/ending/restart/signifier/physics checks and 18 departure-station checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The checks also exercise each visible keypad digit and the Clear/Enter buttons, verify label-to-collider alignment, drop the brass key at speed with recovery disabled, test its below-floor return separately, and verify the secured reward poses and horizontal power-cell axis. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
 
 In a separate physics scene, equal 0.5 kg projectiles at 4 m/s produced target speeds of about 3.49 m/s for a 0.10 kg body and 1.03 m/s for a 1.50 kg body. This checks the intended mass response under controlled contact, while the headset pass must still check hand-driven collisions in the rooms.
 

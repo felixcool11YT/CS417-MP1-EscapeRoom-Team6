@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -8,12 +9,15 @@ public class KeypadButton : MonoBehaviour
     
     [SerializeField] private KeypadLockerController keypad;
     [SerializeField] private string buttonValue;
+    [SerializeField] private TMP_Text label;
 
     private XRSimpleInteractable interactable;
 
     private void Awake()
     {
         interactable = GetComponent<XRSimpleInteractable>();
+        if (label != null)
+            label.text = buttonValue;
     }
 
     private void OnEnable()

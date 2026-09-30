@@ -155,10 +155,32 @@ public static class RoomIntegrationCheck
                 supply.TryPlaceItem(packed[0]); Check(!key.activeSelf,"Repeated supply does not count twice");
                 supply.TryPlaceItem(packed[3]); Check(key.activeSelf,"Four supply types reveal the brass key");
                 Check(packed.All(i=>!i.GetComponent<XRGrabInteractable>().enabled&&i.GetComponent<Rigidbody>().isKinematic),"Stored supplies are secured after XR release");
+                key.GetComponent<DroppedItemRecovery>().enabled=false;
+                var brassBody=key.GetComponent<Rigidbody>();
+                brassBody.position=new Vector3(2.68f,1.1f,-5.42f);
+                brassBody.linearVelocity=Vector3.down*25;
                 var locker=One<KeypadLockerController>(); var filter=(XRGrabInteractable)Field(locker,"lockedFilter");
                 Check(!filter.enabled,"Locker filter cannot be grabbed before the code");
-                locker.PressDigit(0); locker.Submit(); Check(!filter.enabled,"Wrong locker code leaves filter locked");
-                foreach(char c in "2019")locker.PressDigit(c-'0'); locker.Submit(); Check(filter.enabled,"Correct locker code releases its filter");
+                var buttons=locker.GetComponentsInChildren<KeypadButton>();
+                Action<string> press=visible=>buttons.Single(b=>((TMP_Text)Field(b,"label")).text==visible)
+                    .GetComponent<XRSimpleInteractable>().selectEntered.Invoke(new SelectEnterEventArgs());
+                foreach(var button in buttons)
+                {
+                    var label=(TMP_Text)Field(button,"label");
+                    var collider=button.GetComponent<Collider>();
+                    Check(label&&label.text==(string)Field(button,"buttonValue"),"Keypad label matches input: "+label.text);
+                    var offset=label.transform.position-collider.bounds.center;
+                    Check(Vector3.ProjectOnPlane(offset,locker.transform.forward).magnitude<.005f,"Keypad label centered on its collider: "+label.text);
+                    Check(collider.Raycast(new Ray(label.transform.position+locker.transform.forward*.3f,-locker.transform.forward),out _,.5f),"Ray through visible label reaches its button: "+label.text);
+                }
+                foreach(char digit in "0123456789")
+                {
+                    press("C");press(digit.ToString());
+                    Check(((TMP_Text)Field(locker,"displayText")).text==digit.ToString(),"Visible digit enters "+digit);
+                }
+                press("C");Check(((TMP_Text)Field(locker,"displayText")).text=="----","Visible C clears keypad");
+                press("0");press("E"); Check(!filter.enabled,"Wrong locker code leaves filter locked");
+                foreach(char c in "2019")press(c.ToString());press("E"); Check(filter.enabled,"Visible keys and E release the locker filter");
                 var leaks=One<WaterLeakPuzzle>();
                 Check(valves.valveOrder.All(v=>!v.GetComponent<XRSimpleInteractable>().enabled),"Valves disabled before sealing");
                 leaks.SealLeakA(); Check(valves.valveOrder.All(v=>!v.GetComponent<XRSimpleInteractable>().enabled),"One repaired leak is insufficient");
@@ -168,6 +190,9 @@ public static class RoomIntegrationCheck
             }
             else if(step==1)
             {
+                Check(key.transform.position.y>0&&key.transform.position.y<1,"Fast brass-key drop lands above the floor");
+                key.GetComponent<DroppedItemRecovery>().enabled=true;
+                key.GetComponent<Rigidbody>().position=new Vector3(3,-3,-5);
                 Check((int)Field(valves,"currentStep")==0,"Wrong valve order resets progress");
                 foreach(var v in valves.valveOrder)valves.ValveTurned(v);
                 var gate=One<FuseBoxDoorGate>(); Check(gate.doorInteractable.enabled,"Valve sequence unlocks the fuse door");
@@ -184,6 +209,8 @@ public static class RoomIntegrationCheck
             }
             else if(step==2)
             {
+                var returnPoint=(Transform)Field(key.GetComponent<DroppedItemRecovery>(),"recoveryPoint");
+                Check(Vector3.Distance(key.transform.position,returnPoint.position)<.3f&&key.GetComponent<XRGrabInteractable>().enabled&&!key.GetComponent<Rigidbody>().isKinematic,"Lost brass key returns to the authorization shelf and stays grabbable");
                 terminal.AddCharacter("A"); terminal.SubmitCode(); Check(!cabinet.lockedCore.enabled,"Wrong terminal code leaves core locked");
                 terminal.ClearInput(); foreach(char c in "CS417")terminal.AddCharacter(c.ToString()); terminal.SubmitCode();
                 Check(cabinet.lockedCore.enabled,"Correct terminal code enables core pickup");
@@ -210,7 +237,12 @@ public static class RoomIntegrationCheck
                 {
                     var socket=doorSockets.Single(s=>(s.interactionLayers.value&reward.interactionLayers.value)!=0);
                     manager.SelectEnter(socket,(IXRSelectInteractable)reward);
+                    Check(!reward.enabled&&reward.GetComponent<Rigidbody>().isKinematic,reward.name+" stays secured after authorization");
+                    if(reward.attachTransform)
+                        Check(Vector3.Distance(reward.attachTransform.position,socket.attachTransform.position)<.002f,reward.name+" seats at its socket anchor");
                 }
+                var cellMesh=capsule.GetComponentsInChildren<MeshFilter>().Single(m=>m.sharedMesh!=null);
+                Check(Mathf.Abs(Vector3.Dot(cellMesh.transform.up,Vector3.forward))>.999f,"Power cell seats horizontally through the ring");
                 Check(Field(One<DepartureStationController>(),"currentStage").ToString()=="Packing","All three actual room rewards authorize departure packing");
                 Check((bool)Field(One<FinalDoorController>(),"isUnlocked"),"Room rewards open inner authorization door");
                 Check(!One<GameFlowController>().HasEnded,"Authorization does not stop the countdown");
