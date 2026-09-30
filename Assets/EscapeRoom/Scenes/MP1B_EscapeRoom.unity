@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 9067957}
   - component: {fileID: 9067955}
   - component: {fileID: 9067956}
+  - component: {fileID: 9067962}
   m_Layer: 0
   m_Name: SealantTool
   m_TagString: Untagged
@@ -826,7 +827,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 1212173670}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -861,7 +862,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -870,9 +871,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &9067960
 Rigidbody:
@@ -918,6 +919,20 @@ Transform:
   - {fileID: 1798944335}
   m_Father: {fileID: 1652166890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9067962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9067954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &11022026
 GameObject:
   m_ObjectHideFlags: 0
@@ -8024,6 +8039,7 @@ GameObject:
   - component: {fileID: 158970974}
   - component: {fileID: 158970973}
   - component: {fileID: 158970972}
+  - component: {fileID: 158970976}
   m_Layer: 0
   m_Name: retro_multimeter_1k
   m_TagString: Untagged
@@ -8175,7 +8191,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -8210,7 +8226,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -8219,9 +8235,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &158970975
 Rigidbody:
@@ -8250,6 +8266,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &158970976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158970970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &159529037
 GameObject:
   m_ObjectHideFlags: 0
@@ -15890,6 +15920,7 @@ GameObject:
   - component: {fileID: 202026625}
   - component: {fileID: 202026624}
   - component: {fileID: 202026623}
+  - component: {fileID: 202026626}
   m_Layer: 0
   m_Name: EXIT_Radio
   m_TagString: Untagged
@@ -16181,7 +16212,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -16190,9 +16221,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!65 &202026625
 BoxCollider:
@@ -16215,6 +16246,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6124511, y: 0.741388, z: 0.26276165}
   m_Center: {x: 0, y: 0.112143494, z: -0.021590162}
+--- !u!114 &202026626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202026616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &202336440
 GameObject:
   m_ObjectHideFlags: 0
@@ -26719,6 +26764,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: b109bbd746fb41bb8d221391773ac61f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 305927949}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: b109bbd746fb41bb8d221391773ac61f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 305927952}
   m_SourcePrefab: {fileID: 100100000, guid: b109bbd746fb41bb8d221391773ac61f, type: 3}
 --- !u!4 &305927947 stripped
 Transform:
@@ -26812,7 +26860,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -26847,7 +26895,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -26856,9 +26904,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &305927950
 Rigidbody:
@@ -26908,6 +26956,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.34, y: 0.55, z: 0.34}
   m_Center: {x: 0, y: 0.29999998, z: 0}
+--- !u!114 &305927952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305927948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &306300116
 GameObject:
   m_ObjectHideFlags: 0
@@ -28819,6 +28881,7 @@ GameObject:
   - component: {fileID: 349484651}
   - component: {fileID: 349484650}
   - component: {fileID: 349484649}
+  - component: {fileID: 349484656}
   m_Layer: 0
   m_Name: Lantern
   m_TagString: Untagged
@@ -28959,7 +29022,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -28994,7 +29057,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -29003,9 +29066,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &349484652
 Rigidbody:
@@ -29113,6 +29176,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 349484647}
   m_Mesh: {fileID: 360512034856462111, guid: de31cc1c15bf39f49ba86e6c25f4994e, type: 3}
+--- !u!114 &349484656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349484647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &350132277
 GameObject:
   m_ObjectHideFlags: 0
@@ -32618,7 +32695,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -32627,9 +32704,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &411937681
 Rigidbody:
@@ -32748,7 +32825,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
   recoveryPoint: {fileID: 485907501}
   minimumHeight: -1.2
@@ -32841,6 +32918,7 @@ GameObject:
   - component: {fileID: 414009379}
   - component: {fileID: 414009378}
   - component: {fileID: 414009377}
+  - component: {fileID: 414009383}
   m_Layer: 0
   m_Name: prop_cannedfood (2)
   m_TagString: Untagged
@@ -32966,7 +33044,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -33001,7 +33079,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -33010,9 +33088,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &414009379
 Rigidbody:
@@ -33038,9 +33116,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &414009380
 Animator:
   serializedVersion: 7
@@ -33120,6 +33198,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414009375}
   m_Mesh: {fileID: 4300000, guid: fcc30f2beefeaf94e990407639b18736, type: 3}
+--- !u!114 &414009383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414009375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &414837193
 GameObject:
   m_ObjectHideFlags: 0
@@ -34971,6 +35063,7 @@ GameObject:
   - component: {fileID: 467003919}
   - component: {fileID: 467003918}
   - component: {fileID: 467003917}
+  - component: {fileID: 467003920}
   m_Layer: 0
   m_Name: EXIT_FirstAidKit
   m_TagString: Untagged
@@ -35238,7 +35331,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -35247,9 +35340,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!65 &467003919
 BoxCollider:
@@ -35272,6 +35365,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9540794, y: 2.5032954, z: 0.5883722}
   m_Center: {x: 0, y: 1.2310421, z: 0.2941861}
+--- !u!114 &467003920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467003911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &468716755
 GameObject:
   m_ObjectHideFlags: 0
@@ -36427,6 +36534,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de0ad7c0e435b104493d2c2fd5c8b13c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 490391518}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: de0ad7c0e435b104493d2c2fd5c8b13c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 490391519}
   m_SourcePrefab: {fileID: 100100000, guid: de0ad7c0e435b104493d2c2fd5c8b13c, type: 3}
 --- !u!4 &490391513 stripped
 Transform:
@@ -36520,7 +36630,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -36555,7 +36665,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -36564,9 +36674,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &490391516
 Rigidbody:
@@ -36639,6 +36749,20 @@ MonoBehaviour:
   highlightStrength: 0.35
   emissionIntensity: 0.35
   highlightProxy: {fileID: 0}
+--- !u!114 &490391519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490391514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &493464600
 GameObject:
   m_ObjectHideFlags: 0
@@ -49551,6 +49675,7 @@ GameObject:
   - component: {fileID: 644197151}
   - component: {fileID: 644197150}
   - component: {fileID: 644197149}
+  - component: {fileID: 644197153}
   m_Layer: 0
   m_Name: Screwdriver 2
   m_TagString: Untagged
@@ -49677,7 +49802,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -49712,7 +49837,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -49721,9 +49846,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &644197151
 Rigidbody:
@@ -49773,6 +49898,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.27599862, y: 0.2310382, z: 2.0223992}
   m_Center: {x: 0.40183595, y: 0.067422785, z: 0.12346928}
+--- !u!114 &644197153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644197147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &644804040
 GameObject:
   m_ObjectHideFlags: 0
@@ -52788,6 +52927,7 @@ GameObject:
   - component: {fileID: 692394763}
   - component: {fileID: 692394762}
   - component: {fileID: 692394761}
+  - component: {fileID: 692394767}
   m_Layer: 0
   m_Name: prop_cannedfood
   m_TagString: Untagged
@@ -52913,7 +53053,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -52948,7 +53088,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -52957,9 +53097,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &692394763
 Rigidbody:
@@ -52985,9 +53125,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &692394764
 Animator:
   serializedVersion: 7
@@ -53067,6 +53207,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692394759}
   m_Mesh: {fileID: 4300000, guid: fcc30f2beefeaf94e990407639b18736, type: 3}
+--- !u!114 &692394767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692394759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &697920764
 GameObject:
   m_ObjectHideFlags: 0
@@ -55092,6 +55246,7 @@ GameObject:
   - component: {fileID: 765828250}
   - component: {fileID: 765828249}
   - component: {fileID: 765828248}
+  - component: {fileID: 765828254}
   m_Layer: 0
   m_Name: prop_flashlight
   m_TagString: Untagged
@@ -55217,7 +55372,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -55252,7 +55407,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -55261,9 +55416,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &765828250
 Rigidbody:
@@ -55289,9 +55444,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &765828251
 Animator:
   serializedVersion: 7
@@ -55372,6 +55527,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765828246}
   m_Mesh: {fileID: 4300000, guid: 38c8e162cafdc5f4bb9150c28d0f1fd9, type: 3}
+--- !u!114 &765828254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765828246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &766596715
 GameObject:
   m_ObjectHideFlags: 0
@@ -55564,6 +55733,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8b212b234319424380273024da84d178, type: 3}
       insertIndex: -1
       addedObject: {fileID: 767378600}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 8b212b234319424380273024da84d178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 767378603}
   m_SourcePrefab: {fileID: 100100000, guid: 8b212b234319424380273024da84d178, type: 3}
 --- !u!4 &767378598 stripped
 Transform:
@@ -55657,7 +55829,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -55692,7 +55864,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -55701,9 +55873,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &767378601
 Rigidbody:
@@ -55753,6 +55925,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14, y: 0.016, z: 0.14}
   m_Center: {x: 0, y: 0.008, z: 0}
+--- !u!114 &767378603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767378599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &769882181
 GameObject:
   m_ObjectHideFlags: 0
@@ -75217,6 +75403,7 @@ GameObject:
   - component: {fileID: 951413688}
   - component: {fileID: 951413687}
   - component: {fileID: 951413686}
+  - component: {fileID: 951413690}
   m_Layer: 0
   m_Name: KEY_flaregun
   m_TagString: Untagged
@@ -75360,7 +75547,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -75395,7 +75582,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -75404,9 +75591,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &951413689
 Rigidbody:
@@ -75432,9 +75619,23 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &951413690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951413684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &954823168
 GameObject:
   m_ObjectHideFlags: 0
@@ -76221,6 +76422,7 @@ GameObject:
   - component: {fileID: 985542451}
   - component: {fileID: 985542450}
   - component: {fileID: 985542449}
+  - component: {fileID: 985542455}
   m_Layer: 0
   m_Name: prop_cannedfood (1)
   m_TagString: Untagged
@@ -76346,7 +76548,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -76381,7 +76583,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -76390,9 +76592,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &985542451
 Rigidbody:
@@ -76418,9 +76620,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &985542452
 Animator:
   serializedVersion: 7
@@ -76500,6 +76702,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985542447}
   m_Mesh: {fileID: 4300000, guid: fcc30f2beefeaf94e990407639b18736, type: 3}
+--- !u!114 &985542455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985542447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &985830742
 GameObject:
   m_ObjectHideFlags: 0
@@ -81413,6 +81629,7 @@ Transform:
   - {fileID: 2104787607}
   - {fileID: 689888439}
   - {fileID: 1908856432}
+  - {fileID: 1339903698}
   m_Father: {fileID: 535684026}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1074640436
@@ -82346,8 +82563,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10123028, y: 0.0034297274, z: 0.09977751}
-  m_Center: {x: -0.009282805, y: -0.003285136, z: -0.0066153}
+  m_Size: {x: 0.10123028, y: 0.072000004, z: 0.09977751}
+  m_Center: {x: -0.009282805, y: 0.018714864, z: -0.0066153}
 --- !u!1 &1084515026
 GameObject:
   m_ObjectHideFlags: 0
@@ -99875,6 +100092,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338212089}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1339903697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339903698}
+  - component: {fileID: 1339903700}
+  - component: {fileID: 1339903699}
+  m_Layer: 0
+  m_Name: PackingIntake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339903698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339903697}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.009000065, y: 0.086000085, z: 0.0037002554}
+  m_LocalScale: {x: 0.99999976, y: 1, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1074640435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339903699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339903697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8feaa79fffc57e4ab046ae4e03a43b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleSlot
+  puzzle: {fileID: 1074640436}
+--- !u!65 &1339903700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339903697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.42140168, y: 0.24, z: 0.8200001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1345766303
 GameObject:
   m_ObjectHideFlags: 0
@@ -101272,6 +101556,7 @@ GameObject:
   - component: {fileID: 1370503466}
   - component: {fileID: 1370503465}
   - component: {fileID: 1370503464}
+  - component: {fileID: 1370503469}
   m_Layer: 0
   m_Name: AuthorizationItem
   m_TagString: Untagged
@@ -101418,7 +101703,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 928918151}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -101453,7 +101738,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -101462,9 +101747,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!136 &1370503467
 CapsuleCollider:
@@ -101516,6 +101801,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1370503469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370503462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1001 &1371948448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103062,6 +103361,7 @@ GameObject:
   - component: {fileID: 1397779918}
   - component: {fileID: 1397779917}
   - component: {fileID: 1397779916}
+  - component: {fileID: 1397779923}
   m_Layer: 0
   m_Name: KEY_comms
   m_TagString: Untagged
@@ -103200,7 +103500,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -103235,7 +103535,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -103244,9 +103544,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1397779919
 Rigidbody:
@@ -103272,9 +103572,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &1397779920
 Animator:
   serializedVersion: 7
@@ -103356,6 +103656,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397779914}
   m_Mesh: {fileID: 4300000, guid: 43fa95d65a848fd418105c6b7f7be836, type: 3}
+--- !u!114 &1397779923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397779914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1402177154
 GameObject:
   m_ObjectHideFlags: 0
@@ -104452,7 +104766,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107717,6 +108031,7 @@ GameObject:
   - component: {fileID: 1479861904}
   - component: {fileID: 1479861903}
   - component: {fileID: 1479861902}
+  - component: {fileID: 1479861909}
   m_Layer: 0
   m_Name: KEY_pills
   m_TagString: Untagged
@@ -107855,7 +108170,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -107890,7 +108205,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -107899,9 +108214,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1479861905
 Rigidbody:
@@ -107927,9 +108242,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &1479861906
 Animator:
   serializedVersion: 7
@@ -108009,6 +108324,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479861900}
   m_Mesh: {fileID: 4300000, guid: 13c0f408a54463546a570585a55d00ab, type: 3}
+--- !u!114 &1479861909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479861900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1481242014
 GameObject:
   m_ObjectHideFlags: 0
@@ -109049,6 +109378,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed4e92ffb9f0f8945a17a3bb74fe88e4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1506094036}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed4e92ffb9f0f8945a17a3bb74fe88e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1506094037}
   m_SourcePrefab: {fileID: 100100000, guid: ed4e92ffb9f0f8945a17a3bb74fe88e4, type: 3}
 --- !u!4 &1506094031 stripped
 Transform:
@@ -109142,7 +109474,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -109177,7 +109509,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -109186,9 +109518,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1506094034
 Rigidbody:
@@ -109264,6 +109596,20 @@ MonoBehaviour:
   highlightStrength: 0.35
   emissionIntensity: 0.35
   highlightProxy: {fileID: 0}
+--- !u!114 &1506094037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506094032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1506391292
 GameObject:
   m_ObjectHideFlags: 0
@@ -113688,6 +114034,7 @@ GameObject:
   - component: {fileID: 1606077138}
   - component: {fileID: 1606077137}
   - component: {fileID: 1606077136}
+  - component: {fileID: 1606077142}
   m_Layer: 0
   m_Name: prop_tape
   m_TagString: Untagged
@@ -113813,7 +114160,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -113848,7 +114195,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -113857,9 +114204,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1606077138
 Rigidbody:
@@ -113885,9 +114232,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!95 &1606077139
 Animator:
   serializedVersion: 7
@@ -113967,6 +114314,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606077134}
   m_Mesh: {fileID: 4300000, guid: e2cb5de584611274ca2928dc4c9872c8, type: 3}
+--- !u!114 &1606077142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606077134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1611277240
 GameObject:
   m_ObjectHideFlags: 0
@@ -114475,6 +114836,7 @@ GameObject:
   - component: {fileID: 1634312961}
   - component: {fileID: 1634312960}
   - component: {fileID: 1634312959}
+  - component: {fileID: 1634312965}
   m_Layer: 0
   m_Name: BreakerClueNote
   m_TagString: Untagged
@@ -114599,7 +114961,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -114634,7 +114996,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -114643,9 +115005,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1634312961
 Rigidbody:
@@ -114752,6 +115114,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634312957}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1634312965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634312957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1637997245
 GameObject:
   m_ObjectHideFlags: 0
@@ -116551,6 +116927,7 @@ GameObject:
   - component: {fileID: 1672422787}
   - component: {fileID: 1672422786}
   - component: {fileID: 1672422785}
+  - component: {fileID: 1672422790}
   m_Layer: 0
   m_Name: GeneratorCore
   m_TagString: Untagged
@@ -116686,7 +117063,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 640993332}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -116721,7 +117098,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -116730,9 +117107,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!136 &1672422788
 CapsuleCollider:
@@ -116784,6 +117161,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1672422790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672422783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1001 &1676881839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116889,6 +117280,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f397114d405879468c3862948a3d51e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1676881846}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4f397114d405879468c3862948a3d51e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1676881847}
   m_SourcePrefab: {fileID: 100100000, guid: 4f397114d405879468c3862948a3d51e, type: 3}
 --- !u!4 &1676881840 stripped
 Transform:
@@ -117032,7 +117426,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -117067,7 +117461,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -117076,9 +117470,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1676881844
 Rigidbody:
@@ -117151,6 +117545,20 @@ MonoBehaviour:
   highlightStrength: 0.35
   emissionIntensity: 0.35
   highlightProxy: {fileID: 0}
+--- !u!114 &1676881847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676881841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1677650079
 GameObject:
   m_ObjectHideFlags: 0
@@ -119546,6 +119954,7 @@ GameObject:
   - component: {fileID: 1713969502}
   - component: {fileID: 1713969501}
   - component: {fileID: 1713969500}
+  - component: {fileID: 1713969505}
   m_Layer: 0
   m_Name: prop_biohazardkit1
   m_TagString: Untagged
@@ -119650,7 +120059,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -119685,7 +120094,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -119694,9 +120103,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1713969501
 Rigidbody:
@@ -119722,9 +120131,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &1713969502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119803,6 +120212,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713969498}
   m_Mesh: {fileID: 7323452761639777922, guid: 4e3859e7d4623f64ca345e315aebd6e6, type: 3}
+--- !u!114 &1713969505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713969498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1714121808
 GameObject:
   m_ObjectHideFlags: 0
@@ -121044,6 +121467,7 @@ GameObject:
   - component: {fileID: 1731574719}
   - component: {fileID: 1731574718}
   - component: {fileID: 1731574717}
+  - component: {fileID: 1731574722}
   m_Layer: 0
   m_Name: prop_biohazardkit
   m_TagString: Untagged
@@ -121148,7 +121572,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -121183,7 +121607,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -121192,9 +121616,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1731574718
 Rigidbody:
@@ -121220,9 +121644,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &1731574719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121301,6 +121725,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731574715}
   m_Mesh: {fileID: 7323452761639777922, guid: 4e3859e7d4623f64ca345e315aebd6e6, type: 3}
+--- !u!114 &1731574722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731574715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1731644669
 GameObject:
   m_ObjectHideFlags: 0
@@ -129398,7 +129836,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130040,7 +130478,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -130075,7 +130513,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -130084,9 +130522,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1807126758
 Rigidbody:
@@ -130112,9 +130550,23 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &1807126759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807126754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1808269730
 GameObject:
   m_ObjectHideFlags: 0
@@ -132515,6 +132967,7 @@ GameObject:
   - component: {fileID: 1850794285}
   - component: {fileID: 1850794284}
   - component: {fileID: 1850794283}
+  - component: {fileID: 1850794288}
   m_Layer: 0
   m_Name: prop_red_herring02
   m_TagString: Untagged
@@ -132640,7 +133093,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -132675,7 +133128,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -132684,9 +133137,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1850794285
 Rigidbody:
@@ -132712,9 +133165,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!23 &1850794286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -132775,6 +133228,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850794281}
   m_Mesh: {fileID: 2982572427836338798, guid: d9cad685faac1294a9f96d6f588d6ed9, type: 3}
+--- !u!114 &1850794288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850794281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1852538373
 GameObject:
   m_ObjectHideFlags: 0
@@ -133589,6 +134056,7 @@ GameObject:
   - component: {fileID: 1871745373}
   - component: {fileID: 1871745372}
   - component: {fileID: 1871745371}
+  - component: {fileID: 1871745376}
   m_Layer: 0
   m_Name: prop_red_herring01
   m_TagString: Untagged
@@ -133693,7 +134161,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -133728,7 +134196,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -133737,9 +134205,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1871745372
 Rigidbody:
@@ -133765,9 +134233,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &1871745373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -133849,6 +134317,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871745369}
   m_Mesh: {fileID: -2072427898030475007, guid: 2dc2844316bd19d40bd0e8d6d7c7099e, type: 3}
+--- !u!114 &1871745376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871745369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1872455582
 GameObject:
   m_ObjectHideFlags: 0
@@ -137761,6 +138243,7 @@ GameObject:
   - component: {fileID: 1935715632}
   - component: {fileID: 1935715631}
   - component: {fileID: 1935715630}
+  - component: {fileID: 1935715636}
   m_Layer: 0
   m_Name: KEY_firstaidkit
   m_TagString: Untagged
@@ -137878,7 +138361,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -137913,7 +138396,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1.5
+  m_ThrowVelocityScale: 1
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 0
   m_UnparentTransformOnGrab: 1
@@ -137922,9 +138405,9 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
-  m_LimitLinearVelocity: 0
+  m_LimitLinearVelocity: 1
   m_LimitAngularVelocity: 0
-  m_MaxLinearVelocityDelta: 10
+  m_MaxLinearVelocityDelta: 8
   m_MaxAngularVelocityDelta: 20
 --- !u!54 &1935715632
 Rigidbody:
@@ -137950,9 +138433,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &1935715633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -138031,6 +138514,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935715628}
   m_Mesh: {fileID: 7323452761639777922, guid: 4e3859e7d4623f64ca345e315aebd6e6, type: 3}
+--- !u!114 &1935715636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935715628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec926f998abf62a469649208313326e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItemRecovery
+  recoveryPoint: {fileID: 0}
+  minimumHeight: -1.2
 --- !u!1 &1935956774
 GameObject:
   m_ObjectHideFlags: 0
@@ -158650,6 +159147,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 243659262827294534, guid: 3ccecf101475aa542bb8aa11dc55bc72, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1807126757}
+    - targetCorrespondingSourceObject: {fileID: 243659262827294534, guid: 3ccecf101475aa542bb8aa11dc55bc72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807126759}
   m_SourcePrefab: {fileID: 100100000, guid: 3ccecf101475aa542bb8aa11dc55bc72, type: 3}
 --- !u!4 &8753980255347654316 stripped
 Transform:

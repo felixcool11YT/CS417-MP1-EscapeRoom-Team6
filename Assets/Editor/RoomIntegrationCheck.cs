@@ -221,10 +221,14 @@ public static class RoomIntegrationCheck
                 Call(decon,"Solve",new SelectEnterEventArgs{interactorObject=r}); Check((int)Field(decon,"currentStep")==0,"Wrong bedroom filter order resets progress");
                 foreach(var socket in new[]{p,cSocket,r})Call(decon,"Solve",new SelectEnterEventArgs{interactorObject=socket});
                 Check((bool)Field(decon,"solved")&&GameObject.Find("Keycard"),"Correct bedroom filter order spawns the keycard");
+                var card=GameObject.Find("Keycard");
+                Check(card.GetComponent<DroppedItemRecovery>()&&card.GetComponent<XRGrabInteractable>().movementType==XRBaseInteractable.MovementType.VelocityTracking,"Runtime keycard has held collision and recovery protection");
+                card.GetComponent<Rigidbody>().position=new Vector3(0,-4,0);
                 step=3; nextTick=EditorApplication.timeSinceStartup+8;
             }
             else if(step==3)
             {
+                Check(GameObject.Find("Keycard").transform.position.y>-1.2f&&GameObject.Find("Keycard").GetComponent<XRGrabInteractable>().enabled,"Lost runtime keycard recovers without solving the room again");
                 Check(terminal.displayText.text.Contains("ACCESS GRANTED"),"Old rejection timer cannot erase terminal success");
                 var capsule=One<GeneratorRewardCompartment>().authorizationCapsule;
                 Check(capsule.activeSelf,"Core insertion reveals the power-cell clearance");

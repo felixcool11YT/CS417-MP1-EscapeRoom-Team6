@@ -21,7 +21,10 @@ public class GeneratorCoreSocket : MonoBehaviour
     public XRHoverHighlight socketHighlight;
 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other) => TryInsert(other);
+    private void OnTriggerStay(Collider other) => TryInsert(other);
+
+    private void TryInsert(Collider other)
     {
         if (completed)
             return;
@@ -35,7 +38,7 @@ public class GeneratorCoreSocket : MonoBehaviour
         XRGrabInteractable grab =
             core.GetComponent<XRGrabInteractable>();
 
-        if (grab != null && grab.isSelected)
+        if (grab == null || !grab.enabled)
             return;
 
 

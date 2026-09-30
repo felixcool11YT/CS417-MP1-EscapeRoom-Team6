@@ -179,6 +179,10 @@ public class DecontaminationPuzzleController : MonoBehaviour
 
         var grabInteractable = keycard.AddComponent<XRGrabInteractable>();
         grabInteractable.interactionLayers = InteractionLayerMask.GetMask("FinalKeycard");
+        grabInteractable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
+        grabInteractable.limitLinearVelocity = true;
+        grabInteractable.maxLinearVelocityDelta = 8f;
+        keycard.AddComponent<DroppedItemRecovery>();
 
         var rewardLight = keycard.AddComponent<Light>();
         rewardLight.type = LightType.Point;

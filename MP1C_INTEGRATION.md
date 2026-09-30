@@ -44,7 +44,7 @@ Record: contrast an incorrect and correct input, show the changed text/light, an
 | Final fixed cartridges | Purge control buttons | Visibly secured behind guard bars, with protruding labelled push buttons below; instruction reads SECURED FILTERS / USE BUTTONS BELOW |
 | Final FILTERS / HATCH / AUX switches | Exit power circuit | Named circuit labels, ON/OFF marks, and TEST |
 
-The keypad's visible labels are bound to their button values and positioned over the matching colliders. The authorization panel has a catch shelf; the brass key uses continuous collision detection and returns to that shelf if it falls below the floor. Accepted clearances stay secured. The small power cell seats horizontally through its ring.
+The keypad's visible labels are bound to their button values and positioned over the matching colliders. The authorization panel has a catch shelf. Loose grabbable props use velocity tracking and continuous collision detection, so walls resist movement while an item is held. Objects that fall below the level return to their original position; the brass key returns to the authorization shelf. Recovery releases a held item before returning it and preserves puzzle progress. The runtime keycard receives the same protection. The storage box has a catch volume above its open tray and accepts overlapping supplies on both trigger entry and continued overlap. The generator port accepts an unlocked core while held and secures it immediately. Accepted clearances stay secured. The small power cell seats horizontally through its ring.
 
 Record: show each authorization object beside its matching label, compare the storage supplies to the EXIT-tagged duplicates, and show that a wrong item is not accepted in an exit socket. Have a new player match the objects without verbal hints. Similar geometry still needs this visual usability check; layer masks alone are not proof of a clear signifier.
 
@@ -82,9 +82,11 @@ The five base axes total 10 points. The sidequest depends on the team's submitte
 
 ## Automated verification
 
-The September 30 interaction and clue revision passed 114 room/menu/ending/restart/signifier/physics checks and 18 departure-station checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The checks also exercise each visible keypad digit and the Clear/Enter buttons, verify label-to-collider alignment, drop the brass key at speed with recovery disabled, test its below-floor return separately, and verify the secured reward poses and horizontal power-cell axis. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
+The September 30 interaction and clue revision passed 116 room/menu/ending/restart/signifier/physics checks, 18 departure-station checks, and 39 grab-safety checks. Scene inspection found no missing scripts or unresolved nonempty event targets. All three actual room rewards were passed through the final authorization sockets before exercising the departure sequence. The checks also exercise each visible keypad digit and the Clear/Enter buttons, verify label-to-collider alignment, drop the brass key at speed with recovery disabled, test its below-floor return separately, and verify the secured reward poses and horizontal power-cell axis. The revised checks confirm that authorization opens the inner door without victory, early hatch pushes and early exit-trigger entry are rejected, preparation releases the hatch without stopping the timer, the hatch must physically open before escape, and restart relocks everything.
 
 In a separate physics scene, equal 0.5 kg projectiles at 4 m/s produced target speeds of about 3.49 m/s for a 0.10 kg body and 1.03 m/s for a 1.50 kg body. This checks the intended mass response under controlled contact, while the headset pass must still check hand-driven collisions in the rooms.
+
+Grab-safety checks use an XR test interactor to hold the actual pills against a solid wall while its controller target moves through the wall. They also exercise the actual box and generator trigger volumes while items are held, verify that installed items stay seated after later controller movement, and test recovery without resetting packing progress.
 
 These checks invoke puzzle and interaction APIs in Play Mode. They do not simulate a person's reach, sight lines, controller tracking, or traversal of the stairs.
 
@@ -93,7 +95,8 @@ These checks invoke puzzle and interaction APIs in Play Mode. They do not simula
 - Start the APK from its menu; confirm both controllers and locomotion work.
 - Read the newspaper and R's note; verify text, X/read binding, close interaction, and comfortable UI depth.
 - Check the bedroom keypad order, filter pickup/retry, audible feedback, and spawned keycard.
-- Pack all four storage objects. Confirm the brass key cannot be taken before completion and stays reachable afterward.
+- Carry the pills into the open storage box while holding them; confirm they snap in once and remain there after moving the controller. Pack all four storage objects. Confirm the brass key cannot be taken before completion and stays reachable afterward.
+- Hold a loose item against a wall; its body should stop even if the simulated controller passes through. If an item is lost below the level, find it at its original location (brass key: authorization shelf), with puzzle progress preserved.
 - Follow the generator chain from leaks through valves, breakers, radio, terminal, core, and power-cell reward. Check that the core cannot be grabbed before the cabinet opens.
 - Attempt incorrect final-socket matches and confirm authorization opens only the inner door, and finish the full departure sequence. Check that the hatch refuses pushes before preparation is complete.
 - Walk the stairs, operate the hatch, and reach the ending without passing through geometry or becoming stuck.
