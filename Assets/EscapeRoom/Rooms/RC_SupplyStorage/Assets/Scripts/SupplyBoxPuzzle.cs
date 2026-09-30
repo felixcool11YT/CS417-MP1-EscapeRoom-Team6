@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SupplyBoxPuzzle : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class SupplyBoxPuzzle : MonoBehaviour
     [Header("Completion")]
     [SerializeField] private Animator puzzleBoxAnimator;
     [SerializeField] private Animator rewardBoxAnimator;
+    [SerializeField] private GameObject rewardItem;
+    [SerializeField] private TMP_Text progressText;
 
     [Header("Feedback")]
     [SerializeField] private AudioSource placementSound;
@@ -19,6 +22,18 @@ public class SupplyBoxPuzzle : MonoBehaviour
 
     private HashSet<SupplyItemType> placedItems = new();
     private bool puzzleSolved = false;
+
+    private void Awake()
+    {
+        if (rewardItem != null) rewardItem.SetActive(false);
+        UpdateProgress();
+    }
+
+    private void UpdateProgress()
+    {
+        if (progressText != null)
+            progressText.text = puzzleSolved ? "SUPPLIES SECURED\nCOLLECT BRASS KEY" : $"STORAGE KIT: {placedItems.Count} / 4";
+    }
 
     public void TryPlaceItem(PuzzleItem item)
     {
@@ -41,6 +56,7 @@ public class SupplyBoxPuzzle : MonoBehaviour
         PlayPlacementFeedback(snapPoint);
 
         CheckPuzzle();
+        UpdateProgress();
     }
 
     private Transform GetSnapPoint(SupplyItemType itemType)
@@ -66,25 +82,19 @@ public class SupplyBoxPuzzle : MonoBehaviour
 
     private void SnapItem(GameObject item, Transform snapPoint)
     {
-        item.transform.position = snapPoint.position;
-        item.transform.rotation = snapPoint.rotation;
-
-        Rigidbody rb = item.GetComponent<Rigidbody>();
-
+        // End XR selection before applying the final rigidbody state.
+        var grab = item.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        if (grab != null) grab.enabled = false;
+        item.transform.SetPositionAndRotation(snapPoint.position, snapPoint.rotation);
+        var rb = item.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
             rb.isKinematic = true;
-        }
-
-        // Prevent the player from grabbing the item again.
-        var grabInteractable =
-            item.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
-
-        if (grabInteractable != null)
-        {
-            grabInteractable.enabled = false;
+            rb.position = snapPoint.position;
+            rb.rotation = snapPoint.rotation;
         }
     }
 
@@ -113,6 +123,7 @@ public class SupplyBoxPuzzle : MonoBehaviour
     private void SolvePuzzle()
     {
         puzzleSolved = true;
+        if (rewardItem != null) rewardItem.SetActive(true);
 
         Debug.Log("Supply box puzzle solved!");
 

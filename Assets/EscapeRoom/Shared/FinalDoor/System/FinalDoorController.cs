@@ -21,6 +21,8 @@ public class FinalDoorController : MonoBehaviour
     [SerializeField]
     private GameObject exitArea;
 
+    [SerializeField] private DepartureStationController departureStation;
+    private bool authorizationComplete;
     private bool isUnlocked = false;
     private int itemsCollected;
 
@@ -40,7 +42,7 @@ public class FinalDoorController : MonoBehaviour
 
     public void RegisterItem()
     {
-        if (isUnlocked)
+        if (isUnlocked || authorizationComplete)
             return;
 
         itemsCollected++;
@@ -49,8 +51,22 @@ public class FinalDoorController : MonoBehaviour
             progressText.text = $"AUTHORIZATION: {itemsCollected}/{itemsRequired}";
 
         if (itemsCollected >= itemsRequired)
+        {
+            authorizationComplete = true;
             UnlockDoor();
+            if (departureStation != null)
+                departureStation.BeginPreparation();
+            else
+                Debug.LogError("Final door has no departure station assigned.");
+        }
     }
+    public void CompleteDeparture()
+    {
+        if (!authorizationComplete || departureStation == null || !departureStation.IsComplete) return;
+        if (progressText != null)
+            progressText.text = "DEPARTURE READY\nHATCH RELEASED";
+    }
+
     private void UnlockDoor()
     {
         if (isUnlocked)
@@ -58,9 +74,8 @@ public class FinalDoorController : MonoBehaviour
 
         isUnlocked = true;
 
-        GameFlowController gameFlow = FindFirstObjectByType<GameFlowController>();
-        if (gameFlow != null)
-            gameFlow.CompleteGame();
+        if (progressText != null)
+            progressText.text = "ACCESS GRANTED\nPREPARE IN AIRLOCK";
 
         if (doorAnimator != null)
             doorAnimator.SetTrigger("Open");
@@ -68,13 +83,8 @@ public class FinalDoorController : MonoBehaviour
         if (unlockSound != null)
             unlockSound.Play();
 
-        if (unlockParticles != null)
-            unlockParticles.Play();
-
         if (exitArea != null)
             exitArea.SetActive(true);
 
-        if (winPanel != null)
-            winPanel.SetActive(true);
     }
 }

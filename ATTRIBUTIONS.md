@@ -1,8 +1,7 @@
 # Asset Attributions
 
-This file documents third-party assets used in Felix Romero's
-Generator/Communications and bunker-exit/wasteland contributions to
-CS 417 MP1b: Escape Room.
+This file documents third-party assets used in the Generator/Communications
+room, bunker exit/wasteland, and shared integration assets for CS 417 MP1.
 
 ## Sketchfab — Creative Commons Attribution 4.0
 
@@ -135,3 +134,12 @@ License: Pixabay Content License
 - Source: Filter Forge
 - Used as a surface texture reference/material asset.
 - License/usage terms: see Filter Forge source terms.
+
+## Fonts — SIL Open Font License 1.1
+
+### Patrick Hand
+- Creator: Patrick Wagesreiter
+- Source: https://github.com/google/fonts/tree/main/ofl/patrickhand
+- Copyright (c) 2010–2012 Patrick Wagesreiter. All rights reserved.
+- License: SIL Open Font License 1.1; included with the font and in StreamingAssets/ThirdParty/PatrickHand-OFL.txt.
+- Used for handwritten bunker clues and the departure note.

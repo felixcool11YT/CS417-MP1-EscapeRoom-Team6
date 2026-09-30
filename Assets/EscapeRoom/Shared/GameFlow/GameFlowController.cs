@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameFlowController : MonoBehaviour
 {
     [Header("Timer")]
-    [SerializeField] private float startingTimeSeconds = 600f;
+    [SerializeField] private float startingTimeSeconds = 1200f;
     [SerializeField] private TMP_Text timerText;
 
     [Header("Collectibles")]
@@ -19,6 +19,8 @@ public class GameFlowController : MonoBehaviour
     private readonly List<string> collectedItems = new List<string>();
     private float timeRemaining;
     private bool gameEnded;
+    public bool HasEnded => gameEnded;
+    private int lastDisplayedSecond = -1;
 
     private void Start()
     {
@@ -79,8 +81,14 @@ public class GameFlowController : MonoBehaviour
         if (timerText == null)
             return;
 
-        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+        int totalSeconds = Mathf.CeilToInt(timeRemaining);
+
+        if (totalSeconds == lastDisplayedSecond)
+            return;
+
+        lastDisplayedSecond = totalSeconds;
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
         timerText.text = $"TIME: {minutes:00}:{seconds:00}";
     }
 

@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(XRSocketInteractor))]
 public class FinalDoorSocket : MonoBehaviour
@@ -38,14 +38,32 @@ public class FinalDoorSocket : MonoBehaviour
             return;
 
         itemRegistered = true;
+        SecureItem(args.interactableObject as XRGrabInteractable);
         doorController.RegisterItem();
         StartCoroutine(PlayAcceptedFeedback());
+    }
 
-        XRGrabInteractable insertedItem =
-            args.interactableObject.transform.GetComponent<XRGrabInteractable>();
-
-        if (insertedItem != null)
-            insertedItem.enabled = false;
+    private void SecureItem(XRGrabInteractable item)
+    {
+        if (item == null) return;
+        var itemAttach = item.GetAttachTransform(socketInteractor);
+        var socketAttach = socketInteractor.GetAttachTransform(item);
+        item.transform.rotation = socketAttach.rotation
+            * Quaternion.Inverse(itemAttach.rotation) * item.transform.rotation;
+        item.transform.position += socketAttach.position - itemAttach.position;
+        var position = item.transform.position;
+        var rotation = item.transform.rotation;
+        // Selection precedes socket smoothing. Keep the seated pose when release
+        // callbacks run, then secure the installed clearance against impacts.
+        item.enabled = false;
+        item.transform.SetPositionAndRotation(position, rotation);
+        var body = item.GetComponent<Rigidbody>();
+        body.linearVelocity = Vector3.zero;
+        body.angularVelocity = Vector3.zero;
+        body.isKinematic = true;
+        body.useGravity = false;
+        body.position = position;
+        body.rotation = rotation;
     }
 
     private IEnumerator PlayAcceptedFeedback()

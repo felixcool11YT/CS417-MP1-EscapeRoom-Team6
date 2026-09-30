@@ -26,8 +26,6 @@ public class GeneratorRewardCompartment : MonoBehaviour
 
     [Header("Timing")]
     public float openWait = 0.4f;
-    public float revealWait = 0.6f;
-    public float closeWait = 0.8f;
 
     private bool activated = false;
 
@@ -76,12 +74,8 @@ public class GeneratorRewardCompartment : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(revealWait + closeWait);
-
-        // CLOSE AGAIN
-        yield return StartCoroutine(
-            MoveHatch(closedPosition, closedRotation)
-        );
+        // Leave the completed compartment open so it cannot close on the
+        // player's hand or trap the revealed clearance during pickup.
     }
 
     private IEnumerator MoveHatch(

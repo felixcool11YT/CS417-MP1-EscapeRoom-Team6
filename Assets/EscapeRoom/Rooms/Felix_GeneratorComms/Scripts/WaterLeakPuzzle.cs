@@ -104,8 +104,8 @@ public class WaterLeakPuzzle : MonoBehaviour
         if (leakBAudio != null)
             leakBAudio.volume = sealedLeakVolume;
 
-        if (glueFXA != null)
-            glueFXA.Play();
+        if (glueFXB != null)
+            glueFXB.Play();
 
         if (sealFXAudio != null)
             sealFXAudio.Play();

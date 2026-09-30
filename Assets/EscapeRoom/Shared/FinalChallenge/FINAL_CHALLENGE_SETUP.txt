@@ -1,0 +1,45 @@
+Departure station
+
+Scene: Assets/EscapeRoom/Scenes/MP1B_EscapeRoom.unity
+Hierarchy: MP1C_DepartureStation
+
+Sequence
+Three room rewards open the inner blast door into the airlock. The timer continues.
+The station is along the east wall before the stairs, facing the clear center aisle.
+PACK: Put the EXIT first-aid kit and radio into their matching box slots.
+PURGE: Select particulate, chemical, then radiation. Wrong input resets progress.
+POWER: Set FILTERS ON, HATCH ON, AUX OFF, then press TEST to release the exterior hatch.
+Climb the stairs, push the released hatch open, then cross the outside trigger to win.
+The hatch and ending both reject attempts to bypass departure preparation.
+Completed packing secures both supplies in the box. Restart resets the sequence.
+
+Components
+DepartureStationController.cs and DepartureStationController.Setup.cs form one
+partial class. The first file declares the stages and filter sequence; the
+second handles socket events, control gating, feedback and the door handoff.
+BreakerSwitch and XRHoverHighlight are reused from the generator room.
+
+01_PackDepartureKit contains the supplies, supply sockets and PackingStatus.
+02_PurgeExitAir contains the controls, StationStatus text and FilterProgressLamps.
+03_PowerOuterDoor contains the three BreakerSwitch components and TestButton.
+04_R_Instructions opens 07_NoteReadingPanel through a serialized UnityEvent.
+FinalDoorSystem/05_AuthorizationSign remains above the original three authorization sockets.
+06_StationFeedback holds AcceptedAudio, RejectedAudio and CompletedAudio.
+00_StationFrame/StationStatus displays the next action.
+Each stage has a StatusLamp with neutral, ready and complete materials.
+
+Supply interaction layers
+ExitFirstAid and ExitRadio keep the departure supplies separate from the room
+supplies and from each other. Mounted filter cartridges are secured behind guard bars. Use the labelled buttons below.
+
+Physics
+Dynamic scene masses range from 0.1 to 1.5 kg (15:1). The spawned keycard is 0.2 kg.
+
+Testing and building
+Assets/Editor contains the integration check and Quest build entry points.
+MP1cBuildTools.WireAndTest checks the final sequence before building Android.
+MP1cBuildTools.BuildQuest builds the already-wired scenes.
+Output: ../the_room_info/MP1c_Quest_Test
+Android build copies exclude the desktop XR simulator.
+Headset controls, reach, readability, audio and full-room completion require
+physical-device testing before submission.
