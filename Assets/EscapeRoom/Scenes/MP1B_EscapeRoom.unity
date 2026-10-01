@@ -4979,8 +4979,8 @@ Transform:
   m_GameObject: {fileID: 98343234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7072302, z: 0.7069834, w: 0}
-  m_LocalPosition: {x: 4.19, y: 18.93, z: 2.29}
-  m_LocalScale: {x: 100, y: 100, z: 170}
+  m_LocalPosition: {x: 4.19, y: 18.553, z: 2.288}
+  m_LocalScale: {x: 100, y: 100, z: 210}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1225652217}
@@ -16062,7 +16062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1982480475}
   m_Colliders:
   - {fileID: 202026625}
   m_InteractionLayers:
@@ -34974,11 +34974,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 1982480475}
   m_Colliders:
   - {fileID: 467003919}
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 128
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
