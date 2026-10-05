@@ -23,6 +23,8 @@ public class WastelandEnding : MonoBehaviour
     public AudioSource endingAudio;
 
     private bool triggered = false;
+    private BoxCollider exitVolume;
+    private Camera playerCamera;
 
     [Header("VR UI")]
     public Transform endingCanvas;
@@ -31,6 +33,8 @@ public class WastelandEnding : MonoBehaviour
 
     private void Start()
     {
+        exitVolume = GetComponent<BoxCollider>();
+        playerCamera = Camera.main;
         if (whiteFlash != null)
             whiteFlash.alpha = 0f;
 
@@ -54,13 +58,31 @@ public class WastelandEnding : MonoBehaviour
     private void OnTriggerEnter(Collider other) => TryEscape(other);
     private void OnTriggerStay(Collider other) => TryEscape(other);
 
+    private void Update()
+    {
+        if (!playerCamera || !exitVolume || !exitVolume.enabled || triggered)
+            return;
+
+        // The tracked head can enter the exit before the locomotion capsule does.
+        Vector3 point = exitVolume.transform.InverseTransformPoint(playerCamera.transform.position);
+        Vector3 half = exitVolume.size * 0.5f;
+        Vector3 offset = point - exitVolume.center;
+        float headroom = 2f / Mathf.Max(Mathf.Abs(exitVolume.transform.lossyScale.y), 0.001f);
+        if (Mathf.Abs(offset.x) <= half.x && Mathf.Abs(offset.z) <= half.z
+            && offset.y >= -half.y && offset.y <= half.y + headroom)
+            CompleteEscape();
+    }
+
     private void TryEscape(Collider other)
+    {
+        if (other.GetComponentInParent<CharacterController>() != null)
+            CompleteEscape();
+    }
+
+    private void CompleteEscape()
     {
         if (triggered || departureStation == null || !departureStation.IsComplete
             || hatch == null || !hatch.IsOpen || gameFlow == null || gameFlow.HasEnded)
-            return;
-
-        if (other.GetComponentInParent<CharacterController>() == null)
             return;
 
         triggered = true;

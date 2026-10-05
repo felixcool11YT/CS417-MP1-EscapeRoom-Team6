@@ -64,9 +64,9 @@ public static class MP1cBuildTools
             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
             PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;
             PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel32;
-            PlayerSettings.Android.bundleVersionCode=2;
+            PlayerSettings.Android.bundleVersionCode=4;
             EditorUserBuildSettings.buildAppBundle=false;
-            string apk=Path.Combine(Output,"Team6_MP1c_Quest_Test.apk");
+            string apk=Path.Combine(Output,"Team6_MP1c_Quest_PlaytestFix.apk");
             var result=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/EscapeRoom/Scenes/Start.unity",ScenePath},locationPathName=apk,target=BuildTarget.Android,options=BuildOptions.None});
             File.WriteAllText(Path.Combine(Output,"build-report.txt"),"Result: "+result.summary.result+"\nErrors: "+result.summary.totalErrors+"\nSize: "+result.summary.totalSize+"\nDuration: "+result.summary.totalTime+"\nAPK: "+apk);
             if(result.summary.result!=BuildResult.Succeeded)throw new Exception("Quest APK build failed");

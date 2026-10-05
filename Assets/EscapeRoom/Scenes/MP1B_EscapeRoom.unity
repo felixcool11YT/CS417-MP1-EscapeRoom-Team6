@@ -19965,7 +19965,7 @@ GameObject:
   - component: {fileID: 280276800}
   - component: {fileID: 280276799}
   - component: {fileID: 280276798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SupplyShelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
